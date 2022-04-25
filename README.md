@@ -1,5 +1,7 @@
 # ASP.NET
 ASP.NET Quick Note
-ˋˋˋ
-test
-ˋˋˋ
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
