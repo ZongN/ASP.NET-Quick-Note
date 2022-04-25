@@ -17,3 +17,11 @@ dr_Index["C"] = 0.9;
 dt_Index.Rows.Add(dr_Index);
 ```
 
+2.DataTable 排序
+```C#
+
+dt_Index.DefaultView.Sort = "Columns_A DESC";
+
+dt_Index.DefaultView.ToTable();
+
+```
