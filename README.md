@@ -1,8 +1,7 @@
 # ASP.NET C# Quick Note
 
-1. DataTable Add New Row : 
+### 1. DataTable Add New Row : 
 ```C#
-using System.Data;
 
 DataTable dt_Index = new DataTable();
 dt_Index.Columns.Add("A",typeof(double));
@@ -17,7 +16,7 @@ dr_Index["C"] = 0.9;
 dt_Index.Rows.Add(dr_Index);
 ```
 
-2.DataTable 排序
+### 2.DataTable Column Sorting
 ```C#
 
 dt_Index.DefaultView.Sort = "Columns_A DESC";
