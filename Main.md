@@ -1,6 +1,6 @@
 # ASP.NET C# Quick Note
 
-![](https://shields.io/#your-badge)
+![](https://img.shields.io/badge/ASP.NET-C%23-brightgreen)
 
 ### 1. DataTable Add New Row : 
 ```C#
