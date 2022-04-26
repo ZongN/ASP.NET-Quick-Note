@@ -21,6 +21,6 @@ dt_Index.Rows.Add(dr_Index);
 
 dt_Index.DefaultView.Sort = "Columns_A DESC";
 
-dt_Index.DefaultView.ToTable();
+dt_Index = dt_Index.DefaultView.ToTable();
 
 ```
