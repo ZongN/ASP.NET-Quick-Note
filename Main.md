@@ -34,17 +34,3 @@ DataView dv_index = new DataView(dt_Index);
 dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
-> Before :
-| Columns_A  | Columns_B |
-| ---------- | --------- |
-| 2022-05-05 | Jack  |
-| 2022-05-05 | Mandy |
-| 2022-05-01 | Amy |
-| 2022-05-01 | Sean |
-| 2022-05-03 | Mandy |
-> After :
-| Columns_A  |
-| ---------- |
-| 2022-05-05 |
-| 2022-05-01 |
-| 2022-05-03 |
