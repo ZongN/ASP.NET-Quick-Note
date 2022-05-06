@@ -31,6 +31,7 @@ dt_Index = dt_Index.DefaultView.ToTable();
 ```C#
 
 DataView dv_index = new DataView(dt_Index);
+
 dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
