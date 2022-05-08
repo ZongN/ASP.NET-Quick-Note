@@ -35,3 +35,16 @@ DataView dv_index = new DataView(dt_Index);
 dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
+
+### 4. ?: operator 運算子
+```C#
+
+string index_str = "MODE_UPDATE_001";
+
+index_str.IndexOf("UPDATE") > -1 ? "UPDATE" : "INSERT";
+
+return "UPDATE"
+
+```
+Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/operators/conditional-operator)
+(is this condition true ? yes : no)
