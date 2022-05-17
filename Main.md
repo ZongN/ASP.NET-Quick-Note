@@ -85,3 +85,4 @@ Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/lang
 int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
 
 ```
+Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0#code-try-1)
