@@ -82,6 +82,6 @@ Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/lang
 ### 📌 Date To Week #日期 轉 週別
 ```C#
 
-new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
+int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
 
 ```
