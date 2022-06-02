@@ -86,3 +86,11 @@ int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, 
 
 ```
 Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0)
+
+### 📌 DataTable Select DateTime #日期篩選
+```C#
+// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
+// 關鍵是 # 字號 將日期包起來
+DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
+
+```
