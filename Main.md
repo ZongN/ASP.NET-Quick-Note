@@ -94,3 +94,12 @@ Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.
 DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
 
 ```
+
+### 📌 DataRow[] 欄位計算 #Sum加總、Average平均
+```C#
+
+double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
+
+double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
+
+```
