@@ -103,3 +103,12 @@ double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
 double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
 
 ```
+
+### 📌 String Split 多字元 #字串處理、字串分割
+```C#
+
+string index_STR = "白日依山盡，黃河入海流";
+
+index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0]
+
+```
