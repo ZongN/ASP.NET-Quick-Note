@@ -112,3 +112,12 @@ string index_STR = "白日依山盡，黃河入海流";
 index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
 
 ```
+
+### 📌 DateTime.ParseExact #字串轉日期
+```C#
+
+string str_index_Date = "2022-10-06";
+
+DateTime de_index_Date = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
+
+```
