@@ -38,6 +38,18 @@ dt_Index = dt_Index.DefaultView.ToTable();
 
 ```
 
+### 📌 DataRow[] Column OrderBy #排序
+```C#
+
+var dr_OrderBy_Check_Time = dr_index.OrderBy(x=> DateTime.Parse(x["Check_Time"].ToString()));
+
+foreach(DataRow row in dr_OrderBy_Check_Time)
+{
+    row["Check_Time"].ToString()
+}
+
+```
+
 ### 📌 DataTable Row Get Unique #唯一值
 ```C#
 
