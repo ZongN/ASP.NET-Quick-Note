@@ -89,7 +89,7 @@ return "UPDATE"
 ```
 (is this condition true ? yes : no)
 
-Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/operators/conditional-operator){:target="_blank" rel="noopener"}
+Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/operators/conditional-operator)
 
 ### 📌 Date To Week #日期 轉 週別
 ```C#
