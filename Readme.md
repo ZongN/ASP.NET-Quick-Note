@@ -38,7 +38,7 @@ dt_Index = dt_Index.DefaultView.ToTable();
 
 ```
 
-### 📌 DataRow[] Column OrderBy #排序
+### 📌 DataRow[] Column OrderBy / OrderByDescending #排序
 ```C#
 
 var dr_OrderBy_Check_Time = dr_index.OrderBy(x=> DateTime.Parse(x["Check_Time"].ToString()));
