@@ -29,6 +29,15 @@ dt_Index.Rows.Add(index_A,index_B,index_C);
 
 ```
 
+### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
+```C#
+
+DataRow[] dr_index = dt_Index.Select("TYPE = 'A' ");
+
+DataTable dt_Result = dr_index.CopyToDataTable();
+
+```
+
 ### 📌 DataTable Column Sorting #排序
 ```C#
 
