@@ -29,6 +29,18 @@ dt_Index.Rows.Add(index_A,index_B,index_C);
 
 ```
 
+### 📌 DataTable Select + 排序 #排序
+```C#
+
+DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
+
+```
+>取得符合篩選條件 (按照排序順序，並符合指定狀態) 的所有 DataRow 物件之陣列。
+
+>Select(String, String, DataViewRowState)
+
+Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.select?view=net-7.0#system-data-datatable-select(system-string-system-string-system-data-dataviewrowstate))
+
 ### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
 ```C#
 
