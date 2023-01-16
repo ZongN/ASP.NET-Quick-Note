@@ -128,6 +128,20 @@ DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [�
 
 ```
 
+### 📌 DaaTable 欄位計算 #欄位計算 #Sum加總、Average平均
+```C#
+// 欄位需為數值
+// 才可使用 Compute 計算
+
+dt_Index.Columns.Add("Columns_A",typeof(int)); 
+
+double index_Sum = dt_Index.Compute("SUM(Columns_A)", string.Empty);
+
+double index_Agv = dt_Index.Compute("AGV(Columns_A)", string.Empty);
+
+```
+Refer to : [痞客幫](https://einboch.pixnet.net/blog/post/279208343)
+
 ### 📌 DataRow[] 欄位計算 #Sum加總、Average平均
 ```C#
 
