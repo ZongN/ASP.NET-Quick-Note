@@ -4,11 +4,11 @@
 
 | TYPE        | Function       |
 | :---------: | :------------- |
-| DataTable   | #新增資料(列) #排序 #篩選+排序 #日期篩選 #唯一值 #Sum加總/Average平均 |
-| DataRow[]   | #DataRow轉DataTable #排序 #排序+取唯一值 #Sum加總/Average平均       |
-| String      | #字串分割                                                         |
-| DateTime    | #日期轉週別 #字串轉日期                                            |
-| List        | #唯一值                                                           |
+| [DataTable](#datatable)   | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[Sum加總/Average平均](#-datetable-欄位計算-sum加總average平均) |
+| [DataRow[]](#datarow)   | [DataRow轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
+| [String](#string)     | [字串分割](#-string-split-多字元-字串處理字串分割)|
+| [DateTime](#datetime)    | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期)|
+| [List](#list)        | [唯一值](#-list-get-unique-唯一值)|
 
 ## `<DataTable>`
 
