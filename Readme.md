@@ -80,10 +80,11 @@ dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
 
-### 📌 DataRow[] Column OrderBy + Get Unique #排序+唯一值
+### 📌 DataRow[] Column OrderBy + Get Unique #排序 同時 取唯一值
 ```C#
 
 // 先排序 → 取某欄位("Name") → 取唯一值
+
 var index_Dis = dr_Index.OrderBy(x => x["Name"].ToString()).Select(x => x["Name"].ToString()).Distinct();
 
 foreach(var value in index_Dis)
@@ -92,6 +93,7 @@ foreach(var value in index_Dis)
 }
 
 ```
+Refer to : [MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/ba3c5126-bd6c-4ee2-a1be-7ca1ae2df342/how-to-select-distinct-data-from-a-datarow-in-c?forum=netfxbcl)
 
 ### 📌 List Get Unique #唯一值
 ```C#
