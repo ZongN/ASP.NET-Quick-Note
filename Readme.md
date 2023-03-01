@@ -80,6 +80,19 @@ dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
 
+### 📌 DataRow[] Column OrderBy + Get Unique #排序+唯一值
+```C#
+
+// 先排序 → 取某欄位("Name") → 取唯一值
+var index_Dis = dr_Index.OrderBy(x => x["Name"].ToString()).Select(x => x["Name"].ToString()).Distinct();
+
+foreach(var value in index_Dis)
+{
+    value;
+}
+
+```
+
 ### 📌 List Get Unique #唯一值
 ```C#
 
