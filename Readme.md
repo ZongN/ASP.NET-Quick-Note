@@ -5,10 +5,10 @@
 | TYPE        | Function      |
 | ----------- |:-------------:|
 | DataTable   | #新增資料(列) #排序 #篩選+排序 #日期篩選 #唯一值 #Sum加總/Average平均 |
-| DataRow[]   | centered      |
-| String      | are neat      |
-| DateTime    | are neat      |
-| List        | are neat      |
+| DataRow[]   | #DataRow轉DataTable #排序 #排序+取唯一值 #Sum加總/Average平均       |
+| String      | #字串分割                                                         |
+| DateTime    | #日期轉週別 #字串轉日期                                            |
+| List        | #唯一值                                                           |
 
 ## `<DataTable>`
 
