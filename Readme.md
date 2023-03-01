@@ -2,6 +2,14 @@
 
 ![](https://img.shields.io/badge/ASP.NET-C%23-brightgreen)
 
+| TYPE        | Function      |
+| ----------- |:-------------:|
+| DataTable   | #新增資料(列) #排序 #篩選+排序 #日期篩選 #唯一值 #Sum加總/Average平均 |
+| DataRow[]   | centered      |
+| String      | are neat      |
+| DateTime    | are neat      |
+| List        | are neat      |
+
 ## `<DataTable>`
 
 ### 📌 DataTable Add New Row #新增資料(列)
@@ -31,7 +39,15 @@ dt_Index.Rows.Add(index_A,index_B,index_C);
 
 ```
 
-### 📌 DataTable Select + 排序 #排序
+### 📌 DataTable Column Sorting #排序
+```C#
+
+dt_Index.DefaultView.Sort = "Columns_A DESC";
+
+dt_Index = dt_Index.DefaultView.ToTable();
+
+```
+### 📌 DataTable Select + Sorting #篩選 + 排序
 ```C#
 
 DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
@@ -43,12 +59,11 @@ DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.select?view=net-7.0#system-data-datatable-select(system-string-system-string-system-data-dataviewrowstate))
 
-### 📌 DataTable Column Sorting #排序
+### 📌 DataTable Select DateTime #日期篩選
 ```C#
-
-dt_Index.DefaultView.Sort = "Columns_A DESC";
-
-dt_Index = dt_Index.DefaultView.ToTable();
+// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
+// 關鍵是 # 字號 將日期包起來
+DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
 
 ```
 
@@ -58,14 +73,6 @@ dt_Index = dt_Index.DefaultView.ToTable();
 DataView dv_index = new DataView(dt_Index);
 
 dt_Index = dv_index.ToTable(true,"Columns_A");
-
-```
-
-### 📌 DataTable Select DateTime #日期篩選
-```C#
-// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
-// 關鍵是 # 字號 將日期包起來
-DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
 
 ```
 
