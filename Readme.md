@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/badge/ASP.NET-C%23-brightgreen)
 
+## DataTable
+
 ### 📌 DataTable Add New Row #新增資料(列)
 ```C#
 
@@ -41,6 +43,48 @@ DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.select?view=net-7.0#system-data-datatable-select(system-string-system-string-system-data-dataviewrowstate))
 
+### 📌 DataTable Column Sorting #排序
+```C#
+
+dt_Index.DefaultView.Sort = "Columns_A DESC";
+
+dt_Index = dt_Index.DefaultView.ToTable();
+
+```
+
+### 📌 DataTable Row Get Unique #唯一值
+```C#
+
+DataView dv_index = new DataView(dt_Index);
+
+dt_Index = dv_index.ToTable(true,"Columns_A");
+
+```
+
+### 📌 DataTable Select DateTime #日期篩選
+```C#
+// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
+// 關鍵是 # 字號 將日期包起來
+DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
+
+```
+
+### 📌 DateTable 欄位計算 #Sum加總、Average平均
+```C#
+// 欄位需為數值
+// 才可使用 Compute 計算
+
+dt_Index.Columns.Add("Columns_A",typeof(int)); 
+
+double index_Sum = dt_Index.Compute("SUM(Columns_A)", string.Empty);
+
+double index_Agv = dt_Index.Compute("AGV(Columns_A)", string.Empty);
+
+```
+Refer to : [痞客幫](https://einboch.pixnet.net/blog/post/279208343)
+
+## DataRow[]
+
 ### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
 ```C#
 
@@ -77,23 +121,45 @@ foreach(var value in index_Dis)
 ```
 Refer to : [MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/ba3c5126-bd6c-4ee2-a1be-7ca1ae2df342/how-to-select-distinct-data-from-a-datarow-in-c?forum=netfxbcl)
 
-### 📌 DataTable Column Sorting #排序
+### 📌 DataRow[] 欄位計算 #Sum加總、Average平均
 ```C#
 
-dt_Index.DefaultView.Sort = "Columns_A DESC";
+double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
 
-dt_Index = dt_Index.DefaultView.ToTable();
+double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
+
+```
+## String
+
+### 📌 String Split 多字元 #字串處理、字串分割
+```C#
+
+string index_STR = "白日依山盡，黃河入海流";
+
+index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
 
 ```
 
-### 📌 DataTable Row Get Unique #唯一值
+## DateTime
+
+### 📌 Date To Week #日期 轉 週別
 ```C#
 
-DataView dv_index = new DataView(dt_Index);
-
-dt_Index = dv_index.ToTable(true,"Columns_A");
+int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
 
 ```
+Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0)
+
+### 📌 DateTime.ParseExact #字串轉日期
+```C#
+
+string str_index_Date = "2022-10-06";
+
+DateTime de_index_Date = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
+
+```
+
+## List
 
 ### 📌 List Get Unique #唯一值
 ```C#
@@ -113,6 +179,8 @@ return ls_Index;
 
 ```
 
+## Other
+
 ### 📌 ?: operator #運算子
 ```C#
 
@@ -126,60 +194,3 @@ return "UPDATE"
 (is this condition true ? yes : no)
 
 Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/operators/conditional-operator)
-
-### 📌 Date To Week #日期 轉 週別
-```C#
-
-int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
-
-```
-Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0)
-
-### 📌 DataTable Select DateTime #日期篩選
-```C#
-// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
-// 關鍵是 # 字號 將日期包起來
-DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
-
-```
-
-### 📌 DateTable 欄位計算 #Sum加總、Average平均
-```C#
-// 欄位需為數值
-// 才可使用 Compute 計算
-
-dt_Index.Columns.Add("Columns_A",typeof(int)); 
-
-double index_Sum = dt_Index.Compute("SUM(Columns_A)", string.Empty);
-
-double index_Agv = dt_Index.Compute("AGV(Columns_A)", string.Empty);
-
-```
-Refer to : [痞客幫](https://einboch.pixnet.net/blog/post/279208343)
-
-### 📌 DataRow[] 欄位計算 #Sum加總、Average平均
-```C#
-
-double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
-
-double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
-
-```
-
-### 📌 String Split 多字元 #字串處理、字串分割
-```C#
-
-string index_STR = "白日依山盡，黃河入海流";
-
-index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
-
-```
-
-### 📌 DateTime.ParseExact #字串轉日期
-```C#
-
-string str_index_Date = "2022-10-06";
-
-DateTime de_index_Date = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
-
-```
