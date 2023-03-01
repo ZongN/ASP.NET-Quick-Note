@@ -50,15 +50,6 @@ DataTable dt_Result = dr_Index.CopyToDataTable();
 
 ```
 
-### 📌 DataTable Column Sorting #排序
-```C#
-
-dt_Index.DefaultView.Sort = "Columns_A DESC";
-
-dt_Index = dt_Index.DefaultView.ToTable();
-
-```
-
 ### 📌 DataRow[] Column OrderBy / OrderByDescending #排序
 ```C#
 
@@ -68,15 +59,6 @@ foreach(DataRow row in dr_OrderBy_Check_Time)
 {
     row["Check_Time"].ToString();
 }
-
-```
-
-### 📌 DataTable Row Get Unique #唯一值
-```C#
-
-DataView dv_index = new DataView(dt_Index);
-
-dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ```
 
@@ -94,6 +76,24 @@ foreach(var value in index_Dis)
 
 ```
 Refer to : [MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/ba3c5126-bd6c-4ee2-a1be-7ca1ae2df342/how-to-select-distinct-data-from-a-datarow-in-c?forum=netfxbcl)
+
+### 📌 DataTable Column Sorting #排序
+```C#
+
+dt_Index.DefaultView.Sort = "Columns_A DESC";
+
+dt_Index = dt_Index.DefaultView.ToTable();
+
+```
+
+### 📌 DataTable Row Get Unique #唯一值
+```C#
+
+DataView dv_index = new DataView(dt_Index);
+
+dt_Index = dv_index.ToTable(true,"Columns_A");
+
+```
 
 ### 📌 List Get Unique #唯一值
 ```C#
