@@ -78,11 +78,11 @@ dt_Index = dv_index.ToTable(true,"Columns_A");
 
 ### 📌 DateTable 欄位計算 #Sum加總、Average平均
 ```C#
-<方法1>
+// <方法一>
 // 欄位不需為數值
 double db_QTY = dt_Index.AsEnumerable().Sum(x => Convert.ToDouble(x["QTY"].ToString()));
 
-<方法2>
+// <方法二>
 // 欄位需為數值，才可使用 Compute 計算
 dt_Index.Columns.Add("Columns_A",typeof(int)); 
 
@@ -91,7 +91,6 @@ double index_Sum = dt_Index.Compute("SUM(Columns_A)", string.Empty);
 double index_Agv = dt_Index.Compute("AGV(Columns_A)", string.Empty);
 
 ```
-Refer to : [痞客幫](https://einboch.pixnet.net/blog/post/279208343)
 
 ## `<DataRow[]>`
 
