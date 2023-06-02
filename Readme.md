@@ -38,7 +38,8 @@ double index_C = "0.43";
 dt_Index.Rows.Add(index_A,index_B,index_C);
 
 ```
-> 🔥 Tips : 用 `Datatable.Rows.Add` 新增 `DataRow` 遇到 "例外狀況詳細資訊: System.ArgumentException: 這個資料列已經屬於其他資料表。" 時，可改用 `Datatable.ImportRow(DataRow)` 方式新增
+> #### 🔥 Tips : 
+> 用 `Datatable.Rows.Add` 新增 `DataRow` 遇到 "例外狀況詳細資訊: System.ArgumentException: 這個資料列已經屬於其他資料表。" 的錯誤時，可改用 `Datatable.ImportRow(DataRow)` 方式新增
 
 ### 📌 DataTable Column Sorting #排序
 ```C#
