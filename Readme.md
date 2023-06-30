@@ -1,4 +1,4 @@
-# ASP.NET C# Quick Note
+# C# Quick Note
 
 ![](https://img.shields.io/badge/ASP.NET-C%23-brightgreen)
 
