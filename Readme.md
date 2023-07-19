@@ -4,7 +4,7 @@
 
 | TYPE        | Function       |
 | :---------: | :------------- |
-| [DataTable](#datatable)   | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[Sum加總/Average平均](#-datetable-欄位計算-sum加總average平均) |
+| [DataTable](#datatable)   | [新增資料(列)](#-datatable-add-new-row-新增資料列)、新增資料(行)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[Sum加總/Average平均](#-datetable-欄位計算-sum加總average平均) |
 | [DataRow[]](#datarow)   | [DataRow轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
 | [String](#string)     | [字串分割](#-string-split-多字元-字串處理字串分割)|
 | [DateTime](#datetime)    | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期)|
@@ -38,6 +38,31 @@ double index_C = "0.43";
 dt_Index.Rows.Add(index_A,index_B,index_C);
 
 ```
+### 📌 DataTable Add New Column #新增資料(行)
+```C#
+
+DataTable dt_Index = new DataTable();
+
+// <方法一> 資料表 不存在資料
+
+dt_Index.Columns.Add("A",typeof(double));
+
+dt_Index.Columns["A"].DefaultValue = 10.5;
+
+DataRow dr_Index = dt_Index.NewRow()...
+
+// <方法二> 資料表 已存在資料
+
+DataColumn dc_Index = new DataColumn();
+
+dc_Index.ColumnName = "B";
+
+dc_Index.DefaultValue = "B_Default_Value";
+
+dt_Index.Columns.Add(dc_Index);
+
+```
+
 > #### 🔥 Tips : 
 > 用 `Datatable.Rows.Add` 新增 `DataRow` 遇到 _"例外狀況詳細資訊: System.ArgumentException: 這個資料列已經屬於其他資料表。"_ 的錯誤時，可改用 `Datatable.ImportRow(DataRow)` 方式新增
 
