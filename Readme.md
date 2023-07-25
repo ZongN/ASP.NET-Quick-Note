@@ -125,6 +125,7 @@ dt_Index.Columns.Add("Columns_B", typeof(double));
 dt_Index.Columns["Columns_B"].Expression = "CONVERT(Columns_A,'System.Int64') / 10";
 ```
 >DataColumn.Expression 方法必須寫入空的欄位，無法直接複寫原欄位，否則會報錯 "無法設定Expression 屬性，因為在運算式中有循環參考..."
+
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0)
 
 ## `<DataRow[]>`
