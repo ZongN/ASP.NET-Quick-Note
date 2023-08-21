@@ -8,7 +8,7 @@
 | [DataRow[]](#datarow)   | [DataRow轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
 | [String](#string)     | [字串分割](#-string-split-多字元-字串處理字串分割)|
 | [DateTime](#datetime)    | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期)|
-| [List](#list)        | [唯一值](#-list-get-unique-唯一值)|
+| [List](#list)        | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#)|
 
 ## `<DataTable>`
 
@@ -225,6 +225,17 @@ foreach (var i in distinct_Index)
 }
 
 return ls_Index;
+
+```
+
+### 📌 List 轉 String 字串 (免迴圈) #List 轉 String
+```C#
+
+List<string> ls_Index = new List<string>() { "A", "B", "C" };
+
+string str_Index = String.Join("+", ls_Index);
+
+// Result : "A+B+C"
 
 ```
 
