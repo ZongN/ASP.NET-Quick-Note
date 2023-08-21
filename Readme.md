@@ -204,7 +204,11 @@ Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.
 
 string str_index_Date = "2022-10-06";
 
-DateTime de_index_Date = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
+// <方法一>
+DateTime de_index_Date1 = DateTime.Parse(str_index_Date);
+
+// <方法二>
+DateTime de_index_Date2 = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
 
 ```
 
