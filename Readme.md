@@ -132,6 +132,13 @@ dt_Index.Columns["Columns_B"].Expression = "CONVERT(Columns_A,'System.Int64') / 
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0)
 
+### 📌 DataTable To List #DataTable 轉 List
+```C#
+
+List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).ToList();
+
+```
+
 ## `<DataRow[]>`
 
 ### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
