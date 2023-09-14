@@ -37,6 +37,12 @@ double index_C = "0.43";
 
 dt_Index.Rows.Add(index_A,index_B,index_C);
 
+// <方法三>
+
+List<double> ls_Index = new List<double>() { 11.1, 12.2, 13.3 };
+
+dt_Index.Rows.Add(ls_Index.ToArray());
+
 ```
 
 > #### 🔥 Tips : 
@@ -125,6 +131,13 @@ dt_Index = dv_index.ToTable(true,"Columns_A");
 
 // <多欄位>
 dt_Index = dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Columns_C" });
+
+```
+
+### 📌 DataTable Row ItemArray To List #DataTable Row 轉 List
+```C#
+
+List<string> ls_Index_Row_Data = dt_Index.Rows[r].ItemArray.OfType<string>().ToList();
 
 ```
 
