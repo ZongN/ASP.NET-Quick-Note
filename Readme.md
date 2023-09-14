@@ -67,6 +67,23 @@ dt_Index.Columns.Add(dc_Index);
 
 ```
 
+### 📌 DataTable Change Column Data Type #欄位 資料型態轉換 (已存在資料)(免迴圈)
+```C#
+
+dt_Index.Columns.Add("Column_B", typeof(Int16), "CONVERT(Column_A,'System.Int16')");
+
+// 這時候 如果直接移除原欄位 (Column_A)，會報錯 : C# 無法移除這個資料行，因為它是運算式的一部分...
+// 透過 DataView 轉換一次 可解決
+
+DataView dv_index = new DataView(dt_Index);
+
+dt_Index = dv_index.ToTable();
+
+// 移除原欄位
+dt_Re.Columns.Remove("Column_A");
+
+```
+
 ### 📌 DataTable Column Sorting #排序
 ```C#
 
