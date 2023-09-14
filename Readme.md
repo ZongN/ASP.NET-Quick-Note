@@ -141,6 +141,13 @@ List<string> ls_Index = dt_Index.Rows[r].ItemArray.OfType<string>().ToList();
 
 ```
 
+### 📌 DataTable Column To List #資料行 轉 List
+```C#
+
+List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).ToList();
+
+```
+
 ### 📌 DataTable Remove Same Row #移除重複資料行
 ```C#
 
@@ -178,13 +185,6 @@ dt_Index.Columns["Columns_B"].Expression = "CONVERT(Columns_A,'System.Int64') / 
 > `DataColumn.Expression` 方法必須寫入空的欄位，無法直接複寫原欄位，否則會報錯 "無法設定Expression 屬性，因為在運算式中有循環參考..."
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0)
-
-### 📌 DataTable To List #DataTable 轉 List
-```C#
-
-List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).ToList();
-
-```
 
 ## `<DataRow[]>`
 
