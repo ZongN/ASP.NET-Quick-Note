@@ -72,9 +72,6 @@ dt_Index.Columns.Add(dc_Index);
 
 dt_Index.Columns.Add("Column_B", typeof(Int16), "CONVERT(Column_A,'System.Int16')");
 
-// 這時候 如果直接移除原欄位 (Column_A)，會報錯 : C# 無法移除這個資料行，因為它是運算式的一部分...
-// 透過 DataView 轉換一次 可解決
-
 DataView dv_index = new DataView(dt_Index);
 
 dt_Index = dv_index.ToTable();
@@ -83,6 +80,11 @@ dt_Index = dv_index.ToTable();
 dt_Re.Columns.Remove("Column_A");
 
 ```
+
+> #### 🔥 Tips : 
+> Columns.Add(新欄位) 後 無法直接 Columns.Remove(原欄位)。如果直接移除原欄位 (Column_A)，會報錯 : C# 無法移除這個資料行，因為它是運算式的一部分...
+> 透過 DataView 轉換一次 可解決
+> 原始欄位不能有非數值存在
 
 ### 📌 DataTable Column Sorting #排序
 ```C#
