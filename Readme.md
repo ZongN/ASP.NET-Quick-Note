@@ -4,7 +4,7 @@
 
 | Type        | Function       |
 | :---------: | :------------- |
-| [DataTable](#datatable)   | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[DataTable Row 轉 List](#-datatable-row-itemarray-to-list-datatable-row-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[DataTable 轉 List](#-datatable-to-list-datatable-轉-list) |
+| [DataTable](#datatable)   | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[資料列轉List](#-datatable-row-itemarray-to-list-datatable-row-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[DataTable 轉 List](#-datatable-to-list-datatable-轉-list) |
 | [DataRow[]](#datarow)   | [DataRow轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
 | [String](#string)     | [字串分割](#-string-split-多字元-字串處理字串分割)|
 | [DateTime](#datetime)    | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期)|
@@ -134,7 +134,7 @@ dt_Index = dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Colu
 
 ```
 
-### 📌 DataTable Row ItemArray To List #DataTable Row 轉 List
+### 📌 DataTable Row ItemArray To List #資料列 轉 List
 ```C#
 
 List<string> ls_Index = dt_Index.Rows[r].ItemArray.OfType<string>().ToList();
