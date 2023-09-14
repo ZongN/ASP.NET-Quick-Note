@@ -82,8 +82,8 @@ dt_Re.Columns.Remove("Column_A");
 ```
 
 > #### 🔥 Tips : 
-> Columns.Add(新欄位) 後 無法直接 Columns.Remove(原欄位)。如果直接移除原欄位 (Column_A)，會報錯 : C# 無法移除這個資料行，因為它是運算式的一部分...
-> 透過 DataView 轉換一次 可解決
+> `Columns.Add` (新欄位) 後 無法直接 `Columns.Remove` (原欄位)。如果直接移除原欄位 (Column_A)，會報錯 : C# 無法移除這個資料行，因為它是運算式的一部分...
+> 透過 `DataView` 轉換一次 可解決
 > 原始欄位不能有非數值存在
 
 ### 📌 DataTable Column Sorting #排序
@@ -94,20 +94,21 @@ dt_Index.DefaultView.Sort = "Columns_A DESC";
 dt_Index = dt_Index.DefaultView.ToTable();
 
 ```
+
 ### 📌 DataTable Select + Sorting #篩選 + 排序
 ```C#
 
 DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
 
 ```
->取得符合篩選條件 (按照排序順序，並符合指定狀態) 的所有 DataRow 物件之陣列。
-
->Select(String, String, DataViewRowState)
+> 取得符合篩選條件 (按照排序順序，並符合指定狀態) 的所有 DataRow 物件之陣列。
+> `Select(String, String, DataViewRowState)`
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.select?view=net-7.0#system-data-datatable-select(system-string-system-string-system-data-dataviewrowstate))
 
 ### 📌 DataTable Select DateTime #日期篩選
 ```C#
+
 // 篩選 2022/05/02 ~ 2022/05/05 間的 資料
 // 關鍵是 # 字號 將日期包起來
 DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
@@ -129,16 +130,19 @@ dt_Index = dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Colu
 
 ### 📌 DataTable Remove Same Row #移除重複資料行
 ```C#
+
 DataView dv_index = new DataView(dt_Index);
 
 dt_Index = dv_index.ToTable(true);
+
 ```
->.ToTable(Boolean) / [Boolean distinct] 如果為 true，則返回 DataTable 包含具有與其所有列不同的值的行。默認值是 false。
+> `.ToTable(Boolean)` / [Boolean distinct] 如果為 true，則返回 DataTable 包含具有與其所有列不同的值的行。默認值是 false。
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.dataview.totable?view=net-7.0)
 
 ### 📌 DateTable 欄位計算 #Sum加總、Average平均、運算式
 ```C#
+
 // <方法一>
 // 欄位不需為數值
 double db_QTY = dt_Index.AsEnumerable().Sum(x => Convert.ToDouble(x["QTY"].ToString()));
@@ -156,8 +160,9 @@ double index_Agv = dt_Index.Compute("AGV(Columns_A)", string.Empty);
 dt_Index.Columns.Add("Columns_B", typeof(double));
 
 dt_Index.Columns["Columns_B"].Expression = "CONVERT(Columns_A,'System.Int64') / 10";
+
 ```
->DataColumn.Expression 方法必須寫入空的欄位，無法直接複寫原欄位，否則會報錯 "無法設定Expression 屬性，因為在運算式中有循環參考..."
+> `DataColumn.Expression` 方法必須寫入空的欄位，無法直接複寫原欄位，否則會報錯 "無法設定Expression 屬性，因為在運算式中有循環參考..."
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0)
 
