@@ -239,6 +239,8 @@ double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString())
 
 string index_STR = "白日依山盡，黃河入海流";
 
+index_STR.Split('，');
+
 index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
 
 ```
