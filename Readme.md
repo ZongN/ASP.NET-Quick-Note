@@ -306,7 +306,7 @@ string str_Index = String.Join("+", ls_Index);
 
 ```
 
-### 📌 List Where + IndexOf 字串搜尋 #List Where + IndexOf
+### 📌 List Where + IndexOf 查找字串 #List Where + IndexOf
 ```C#
 
 List<string> ls_Index = new List<string>() { "A=1", "B=2", "C=3" };
