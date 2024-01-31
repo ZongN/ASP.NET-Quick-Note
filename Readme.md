@@ -146,8 +146,11 @@ List<string> ls_Index = dt_Index.Rows[r].ItemArray.OfType<string>().ToList();
 
 List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).ToList();
 
-// 同時排序
+// 同時 升冪 排序
 List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).OrderBy(x => x).ToList();
+
+// 同時 降冪 排序
+List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).OrderByDescending(x => x).ToList();
 
 ```
 
