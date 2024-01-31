@@ -146,6 +146,9 @@ List<string> ls_Index = dt_Index.Rows[r].ItemArray.OfType<string>().ToList();
 
 List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).ToList();
 
+// 同時排序
+List<string> ls_Index = dt_Index.Rows.OfType<DataRow>().Select(dr => dr.Field<string>("Column_A")).OrderBy(x => x).ToList();
+
 ```
 
 ### 📌 DataTable Remove Same Row #移除重複資料行
