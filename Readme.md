@@ -262,6 +262,17 @@ bool flag = index_STR.Contains('依山盡');
 
 ```
 
+### 📌 String Contains 字串補位元 #補位元
+```C#
+
+string index_STR = "5";
+
+index_STR.PadLeft(3, '0');
+
+// Result : "003"
+
+```
+
 ## `<DateTime>`
 
 ### 📌 Date To Week #日期 轉 週別
