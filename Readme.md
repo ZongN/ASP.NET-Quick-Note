@@ -283,9 +283,20 @@ string name = "apple";
 
 int price = 25;
 
-string sentence = string.Format("The price of {0} is {1} each.", name, price);
+string str_Result = string.Format("The price of {0} is {1} each.", name, price);
 
-// Result : "003"
+// Result : "The price of apple is 25 each."
+
+// 指定 佔位符 格式
+double price = 25.5;
+
+string str_Result = string.Format("The price of {0} is {1:C} each.", name, price);
+
+// Result : "The price of apple is NT$25.50 each."
+
+string str_Result = string.Format("The price of {0} is {1:0.00} each.", name, price);
+
+// Result : "The price of apple is 25.50 each."
 
 ```
 
