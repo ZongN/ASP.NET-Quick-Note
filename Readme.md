@@ -249,7 +249,7 @@ index_STR.Split('，');
 
 index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
 
-// 移除空的
+// 移除空值
 index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.RemoveEmptyEntries)[0];
 
 ```
