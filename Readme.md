@@ -287,7 +287,7 @@ string str_Result = string.Format("The price of {0} is {1} each.", name, price);
 
 // Result : "The price of apple is 25 each."
 
-// 指定 佔位符 格式
+// <指定格式>
 double price = 25.5;
 
 string str_Result = string.Format("The price of {0} is {1:C} each.", name, price);
