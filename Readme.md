@@ -276,6 +276,19 @@ index_STR.PadLeft(3, '0');
 
 ```
 
+### 📌 String Format {} 佔位符 #佔位符
+```C#
+
+string name = "apple";
+
+int price = 25;
+
+string sentence = string.Format("The price of {0} is {1} each.", name, price);
+
+// Result : "003"
+
+```
+
 ## `<DateTime>`
 
 ### 📌 Date To Week #日期 轉 週別
