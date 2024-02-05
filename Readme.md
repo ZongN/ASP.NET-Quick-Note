@@ -249,6 +249,9 @@ index_STR.Split('，');
 
 index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.None)[0];
 
+// 移除空的
+index_STR.Split(new string[] { "盡，黃" }, StringSplitOptions.RemoveEmptyEntries)[0];
+
 ```
 
 ### 📌 String Contains 字串比對 #字串比對
