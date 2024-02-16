@@ -238,6 +238,16 @@ double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
 double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
 
 ```
+
+### 📌 DataRow[] To List #DataRow 轉 List
+```C#
+
+DataRow[] dr_Index = dt_Index.Select("TYPE = 'A' ");
+
+List<string> ls_Index = dr_Index.OfType<DataRow>().Select(dr=>dr.Field<string>("ID")).ToList();
+
+```
+
 ## `<String>`
 
 ### 📌 String Split 多字元 #字串處理、字串分割
