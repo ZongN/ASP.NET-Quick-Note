@@ -203,6 +203,15 @@ DataTable dt_Result = dr_Index.CopyToDataTable();
 
 ```
 
+### 📌 DataRow[] To List #DataRow 轉 List
+```C#
+
+DataRow[] dr_Index = dt_Index.Select("TYPE = 'A' ");
+
+List<string> ls_Index = dr_Index.OfType<DataRow>().Select(dr=>dr.Field<string>("ID")).ToList();
+
+```
+
 ### 📌 DataRow[] Column OrderBy / OrderByDescending #排序
 ```C#
 
@@ -236,15 +245,6 @@ Refer to : [MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/ba3c512
 double index_Sum = dr_Index.Sum(x => double.Parse(x["Columns_A"].ToString()));
 
 double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString()));
-
-```
-
-### 📌 DataRow[] To List #DataRow 轉 List
-```C#
-
-DataRow[] dr_Index = dt_Index.Select("TYPE = 'A' ");
-
-List<string> ls_Index = dr_Index.OfType<DataRow>().Select(dr=>dr.Field<string>("ID")).ToList();
 
 ```
 
