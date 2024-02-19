@@ -309,9 +309,11 @@ string str_Result = string.Format("The price of {0} is {1:0.00} each.", name, pr
 // Result : "The price of apple is 25.50 each."
 
 // <資料表>
-string str_sql = "INSERT INTO A_TABLE ([A],[B],[C],[D]) VALUES ('{0}','{1}','{2}','{3}')";
+string str_sql = "INSERT INTO A_TABLE ([A],[B],[C]) VALUES ('{0}','{1}','{2}')";
 
 str_sql = string.Format(str_sql, dt_Row.Rows[0].ItemArray);
+
+// Result : "INSERT INTO A_TABLE ([A],[B],[C]) VALUES ('XX','YY','ZZ')"
 
 ```
 
