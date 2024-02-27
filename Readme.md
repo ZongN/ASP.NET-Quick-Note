@@ -124,6 +124,8 @@ DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [�
 ### 📌 DataTable Row Get Unique #唯一值
 ```C#
 
+// <方法一>
+
 DataView dv_index = new DataView(dt_Index);
 
 // <單一欄位>
@@ -131,6 +133,10 @@ dt_Index = dv_index.ToTable(true,"Columns_A");
 
 // <多欄位>
 dt_Index = dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Columns_C" });
+
+// <方法二>
+
+List<string> ls_Index = dv_index.AsEnumerable().Select(row => row.Field<string>("Columns_A")).Distinct().ToList();
 
 ```
 
