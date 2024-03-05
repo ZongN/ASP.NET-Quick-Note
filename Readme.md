@@ -423,3 +423,25 @@ return "UPDATE"
 (is this condition true ? yes : no)
 
 Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/operators/conditional-operator)
+
+## `<Function>`
+
+### 📌 判斷資料表是否存在資料 #Check If DataTable Is Empty
+```C#
+
+// 檢查資料表是否有資料
+static bool Checkif_Data_Exist_In_DataTable(DataTable dt_Index)
+{
+    bool Check_Flag = false;
+
+    if (dt_Index.Rows.Count > 0)
+    {
+        if (dt_Index.Rows[0][0].ToString() != "" && !String.IsNullOrEmpty(dt_Index.Rows[0][0].ToString()))
+        {
+            Check_Flag = true;
+        }
+    }
+    return Check_Flag;
+}
+
+```
