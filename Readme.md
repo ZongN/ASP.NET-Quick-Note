@@ -281,6 +281,19 @@ bool flag = index_STR.Contains('依山盡');
 
 ```
 
+### 📌 String StartsWith 字串模糊比對 / 多條件模糊比對 #字串比對 #多條件比對
+```C#
+
+string index_STR = "app";
+
+string[] index_List = { "apple", "banner", "orange" };
+
+bool isBelongToList = index_List.Any(d => index_STR.StartsWith(d));
+
+// 回傳布林值
+
+```
+
 ### 📌 String PadLeft 字串補位元 #字串補位元
 ```C#
 
