@@ -430,7 +430,6 @@ Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/csharp/lang
 ### 📌 判斷資料表是否存在資料 #Check If DataTable Is Empty
 ```C#
 
-// 檢查資料表是否有資料
 static bool Checkif_Data_Exist_In_DataTable(DataTable dt_Index)
 {
     bool Check_Flag = false;
@@ -443,6 +442,24 @@ static bool Checkif_Data_Exist_In_DataTable(DataTable dt_Index)
         }
     }
     return Check_Flag;
+}
+
+```
+
+### 📌 取得資料表單一欄位唯一值 #Get DataTable Column Unique
+```C#
+
+static List<string> Get_DataTable_Column_Unique(DataTable dt_In, string Column_Name)
+{
+    DataView dv_index = new DataView(dt_In);
+
+    // 單一欄位 取 唯一值
+    dt_In = dv_index.ToTable(true, Column_Name);
+
+    // 轉 LIST
+    List<string> ls_Index = dt_In.Rows.OfType<DataRow>().Select(dr => dr.Field<string>(Column_Name)).ToList();
+
+    return ls_Index;
 }
 
 ```
