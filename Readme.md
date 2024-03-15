@@ -347,7 +347,7 @@ int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, 
 ```
 Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0)
 
-### 📌 DateTime.ParseExact #字串轉日期
+### 📌 DateTime.ParseExact #字串轉日期 #特定格式轉換
 ```C#
 
 string str_index_Date = "2022-10-06";
@@ -357,6 +357,9 @@ DateTime de_index_Date1 = DateTime.Parse(str_index_Date);
 
 // <方法二>
 DateTime de_index_Date2 = DateTime.ParseExact(str_index_Date, "yyyy-MM-dd", null);
+
+// <特定格式轉換>
+DateTime de_index_Date3 = DateTime.ParseExact("20240315145000", "yyyyMMddHHmmss", null);
 
 ```
 
