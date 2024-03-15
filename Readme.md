@@ -136,7 +136,6 @@ dv_index.ToTable(true,"Columns_A");
 dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Columns_C" });
 
 // <方法二> Linq
-
 List<string> ls_Index = dt_Index.AsEnumerable().Select(row => row.Field<string>("Columns_A")).Distinct().ToList();
 
 ```
