@@ -356,7 +356,7 @@ var date = new DateTime(2024, 4, 4);
 var index = $"Today is {date:yyyy/MM/dd} ";
 
 ```
-// Refer to : [BLOG](https://igouist.github.io/post/2020/08/csharp-string-interpolation/)
+// Refer to : [Blogger](https://igouist.github.io/post/2020/08/csharp-string-interpolation/)
 
 ## `<DateTime>`
 
