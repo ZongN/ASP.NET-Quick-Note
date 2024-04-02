@@ -344,17 +344,19 @@ str_sql = string.Format(str_sql, dt_Row.Rows[0].ItemArray);
 
 // Result : "INSERT INTO A_TABLE ([A],[B],[C]) VALUES ('XX','YY','ZZ')"
 
-// C# 6以上版本，支援 插值字串 $
+```
 
+### 📌 String $ 插植字串 #插值字串
+```C#
+// C# 6以上版本，支援 插值字串 $
 var index = $"Welcome，{userName} ";
 
 var date = new DateTime(2024, 4, 4);
 
 var index = $"Today is {date:yyyy/MM/dd} ";
 
-// Refer to : [BLOG](https://igouist.github.io/post/2020/08/csharp-string-interpolation/)
-
 ```
+// Refer to : [BLOG](https://igouist.github.io/post/2020/08/csharp-string-interpolation/)
 
 ## `<DateTime>`
 
