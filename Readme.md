@@ -198,6 +198,15 @@ dt_Index.Columns["Columns_B"].Expression = "CONVERT(Columns_A,'System.Int64') / 
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0)
 
+### 📌 DataTable Take N Row #取前 N 筆資料
+```C#
+
+DataView dv_index = new DataView(dt_Index);
+
+dt_Index = dv_index.ToTable(true);
+
+```
+
 ## `<DataRow[]>`
 
 ### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
