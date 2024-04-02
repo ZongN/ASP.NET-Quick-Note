@@ -201,9 +201,10 @@ Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system
 ### 📌 DataTable Take N Row #取前 N 筆資料
 ```C#
 
-DataView dv_index = new DataView(dt_Index);
+// 前 N 筆
+int N = 10
 
-dt_Index = dv_index.ToTable(true);
+dt_Index = dt_Index.Rows.Cast<DataRow>().Take(N).CopyToDataTable();
 
 ```
 
