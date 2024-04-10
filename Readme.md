@@ -358,6 +358,16 @@ var index = $"Today is {date:yyyy/MM/dd} ";
 ```
 // Refer to : [Blogger](https://igouist.github.io/post/2020/08/csharp-string-interpolation/)
 
+### 📌 String Insert 字串插入 #字串插入
+```C#
+
+string index_STR = "ABCEFG";
+
+index_STR = index_STR.Insert(3,"D");
+
+```
+// Refer to : [Microsoft Build]([https://igouist.github.io/post/2020/08/csharp-string-interpolation/](https://learn.microsoft.com/zh-tw/dotnet/api/system.string.insert?view=net-8.0))
+
 ## `<DateTime>`
 
 ### 📌 Date To Week #日期 轉 週別
