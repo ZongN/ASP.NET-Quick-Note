@@ -366,7 +366,7 @@ string index_STR = "ABCEFG";
 index_STR = index_STR.Insert(3,"D");
 
 ```
-// Refer to : [Microsoft Build]([https://igouist.github.io/post/2020/08/csharp-string-interpolation/](https://learn.microsoft.com/zh-tw/dotnet/api/system.string.insert?view=net-8.0))
+// Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.string.insert?view=net-8.0)
 
 ## `<DateTime>`
 
