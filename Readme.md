@@ -228,6 +228,13 @@ List<string> ls_Index = dr_Index.OfType<DataRow>().Select(dr=>dr.Field<string>("
 
 ```
 
+### 📌 DataRow[] Where #篩選 #二次篩選
+```C#
+
+DataRow[] dr_FindRow = dr_Index.Where(row => row["Column_A"].ToString() == "Apple").ToArray();
+
+```
+
 ### 📌 DataRow[] Column OrderBy / OrderByDescending #排序
 ```C#
 
