@@ -138,6 +138,21 @@ dv_index.ToTable(true, new string[] { "Columns_A", "Columns_B", "Columns_C" });
 // <方法二> Linq
 List<string> ls_Index = dt_Index.AsEnumerable().Select(row => row.Field<string>("Columns_A")).Distinct().ToList();
 
+// <取唯一值 + 排序>
+List<string> ls_Index = dt_Index.AsEnumerable()
+                                .Select(x => x.Field<string>("Columns_A"))
+                                .Distinct()
+                                .OrderBy(p => p)
+                                .ToList();
+
+// <取唯一值 + 排序(多條件排序)>
+List<string> ls_Index = dt_Index.AsEnumerable()
+                                .Select(x => x.Field<string>("Columns_A"))
+                                .Distinct()
+                                .OrderBy(p => p.Length) // 先按字串長度排序
+                                .ThenBy(p => p) // 若長度相同，則按字母順序升冪排序
+                                .ToList();
+
 ```
 
 ### 📌 DataTable Row ItemArray To List #資料列 轉 List
