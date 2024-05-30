@@ -370,6 +370,7 @@ str_sql = string.Format(str_sql, dt_Row.Rows[0].ItemArray);
 ### 📌 String $ 插值字串 #插值字串
 ```C#
 // 🔥 C# 6以上版本，支援 插值字串 $
+
 var index = $"Welcome，{userName} ";
 
 var date = new DateTime(2024, 4, 4);
