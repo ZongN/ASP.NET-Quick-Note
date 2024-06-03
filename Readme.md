@@ -222,6 +222,14 @@ dt_Index = dt_Index.Rows.Cast<DataRow>().Take(N).CopyToDataTable();
 
 ```
 
+### 📌 DataTable Merge #資料表合併 欄位衝突
+```C#
+
+dt_A.merge(dt_B, true, MissingSchemaAction.Ignore);
+
+```
+Refer to : [Microsoft Build]([https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datacolumn.expression?view=net-7.0](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.merge?view=net-8.0#system-data-datatable-merge(system-data-datatable-system-boolean-system-data-missingschemaaction)))
+
 ## `<DataRow[]>`
 
 ### 📌 DataRow[] To DataTable #DataRow 轉 DataTable
