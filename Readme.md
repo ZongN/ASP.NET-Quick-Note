@@ -9,7 +9,7 @@
 | [String](#string)     | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)|
 | [DateTime](#datetime)    | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
 | [List](#list)        | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)|
-|[Function](#Function)     | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)|
+|[Function](#Function)     | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表 轉置矩陣]()|
 
 ## `<DataTable>`
 
@@ -524,6 +524,44 @@ static List<string> Get_DataTable_Column_Unique(DataTable dt_In, string Column_N
     List<string> ls_Index = dt_In.Rows.OfType<DataRow>().Select(dr => dr.Field<string>(Column_Name)).ToList();
 
     return ls_Index;
+}
+
+```
+
+### 📌 取資料表 轉置矩陣 # DataTable 轉置
+```C#
+
+static List<string> Transpose_DataTable(DataTable dt_input)
+{
+    DataTable dt = dt_input;
+    DataTable NewDataTale = new DataTable();
+    
+    //原本DataTable列數
+    int dtRowsCount = dt.Rows.Count;
+    //原本DataTable欄數
+    int dtColumnCount = dt.Columns.Count;
+    //將原本DataTable的第一個欄位放入轉置後的第一欄
+    NewDataTale.Columns.Add(dt.Columns[0].ToString(), typeof(string));
+    //將原本DataTable的第一列轉置為轉置後的欄位
+    for (int i = 0; i < dtRowsCount; i++)
+    {
+        NewDataTale.Columns.Add(dt.Rows[i][0].ToString(), typeof(string));
+    }
+    
+    //將原本DataTable的欄位列依序轉置為轉置後的每一列
+    //起始為1，因為原本第一列已經放置為欄位名稱，要從第二列開始跑起
+    for (int s = 1; s < dtColumnCount; s++)
+    {
+        DataRow dr = NewDataTale.NewRow();
+        dr[0] = dt.Columns[s].ToString();
+        for (int i = 0; i < dtRowsCount; i++)
+        {
+            dr[i + 1] = dt.Rows[i][s].ToString();
+        }
+        NewDataTale.Rows.Add(dr);
+    }
+    
+    return NewDataTale;
 }
 
 ```
