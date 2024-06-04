@@ -531,7 +531,7 @@ static List<string> Get_DataTable_Column_Unique(DataTable dt_In, string Column_N
 ### 📌 取資料表 轉置矩陣 # DataTable 轉置
 ```C#
 
-static List<string> Transpose_DataTable(DataTable dt_input)
+static DataTable Transpose_DataTable(DataTable dt_input)
 {
     DataTable dt = dt_input;
     DataTable NewDataTale = new DataTable();
