@@ -300,6 +300,13 @@ double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString())
 
 Dictionary<string, string> dir_Index = new Dictionary<string, string>();
 
+dir_Index["A"] = "AAA";
+dir_Index["B"] = "BBB";
+dir_Index["C"] = "CCC";
+
+// 字尾處理
+dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Substring(0, kv.Value.ToString().Length - 1) + "]}");
+
 
 ```
 
