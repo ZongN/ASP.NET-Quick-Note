@@ -305,8 +305,7 @@ dir_Index["B"] = "BBB";
 dir_Index["C"] = "CCC";
 
 // 字尾處理
-dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Substring(0, kv.Value.ToString().Length - 1) + "]}");
-
+dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Substring(0, kv.Value.ToString().Length - 1));
 
 ```
 
