@@ -295,7 +295,19 @@ double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString())
 ```
 
 ## `<Dictionary>`
-### 📌 Dictionary 每個元素進行處理 # 免迴圈
+
+### 📌 Dictionary 取值 #取值
+```C#
+
+Dictionary<string, string> dir_Index = new Dictionary<string, string>();
+
+dir_Index["A"] = "AAA";
+
+dir_Index.Values;
+
+```
+
+### 📌 Dictionary 每個元素進行處理 #免迴圈
 ```C#
 
 Dictionary<string, string> dir_Index = new Dictionary<string, string>();
@@ -308,7 +320,6 @@ dir_Index["C"] = "CCC";
 dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Substring(0, kv.Value.ToString().Length - 1));
 
 ```
-
 
 ## `<String>`
 
