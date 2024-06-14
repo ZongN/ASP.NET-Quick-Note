@@ -243,7 +243,7 @@ Dictionary<string, List<string>> dic_Index = dt_Index
         C_B = group.Select(e => e.Field<string>("Column_B")).ToList()
     })
     .OrderBy(x => x.C_A)                        // 將結果集進行排序，根據 C_A（分組的鍵）的值進行升序排序。
-    .ToDictionary(x => x.C_A, x => x.C_B);
+    .ToDictionary(x => x.C_A, x => x.C_B);      // 將 LINQ 查詢的結果轉換為 Dictionary。其中第一個參數 x => x.C_A 指定了鍵的選取條件，第二個參數 x => x.C_B 指定了值的選取條件。
 
 ```
 
