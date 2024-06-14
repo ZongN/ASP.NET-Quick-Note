@@ -235,14 +235,14 @@ Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system
 ```C#
 
 Dictionary<string, List<string>> dic_Index = dt_Index
-    .AsEnumerable()
-    .GroupBy(x => x.Field<string>("Column_A"))
-    .Select(group => new
+    .AsEnumerable()                             // 將 DataTable 轉換為可枚舉的集合。它將 DataTable 中的每一行轉換為 DataRow 物件，這樣就可以使用 LINQ 來查詢和操作這些資料了。
+    .GroupBy(x => x.Field<string>("Column_A"))  // 將資料根據 "Column_A" 欄位的值進行分組。它將返回一個 IEnumerable<IGrouping<TKey, TSource>> 物件，其中每個分組都包含一個 Key 和相應的 DataRow 集合。
+    .Select(group => new                        // 將每個分組進行選取操作，創建一個新的匿名類型物件(group)，其中包含 C_A（分組的鍵）和 C_B（相應分組中 Column_B 的列表）兩個屬性。
     {
         C_A = group.Key,
         C_B = group.Select(e => e.Field<string>("Column_B")).ToList()
     })
-    .OrderBy(x => x.C_A)
+    .OrderBy(x => x.C_A)                        // 將結果集進行排序，根據 C_A（分組的鍵）的值進行升序排序。
     .ToDictionary(x => x.C_A, x => x.C_B);
 
 ```
