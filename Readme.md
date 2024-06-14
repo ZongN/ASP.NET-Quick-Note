@@ -246,6 +246,7 @@ Dictionary<string, List<string>> dic_Index = dt_Index
     .ToDictionary(x => x.C_A, x => x.C_B);      // 將 LINQ 查詢的結果轉換為 Dictionary。其中第一個參數 x => x.C_A 指定了鍵的選取條件，第二個參數 x => x.C_B 指定了值的選取條件。
 
 ```
+🔥 Program comments provided by ChatGPT
 
 ## `<DataRow[]>`
 
