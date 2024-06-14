@@ -316,13 +316,27 @@ double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString())
 ### 📌 Dictionary 取值 #取值
 ```C#
 
-Dictionary<string, string> dir_Index = new Dictionary<string, string>();
+Dictionary<string, string> dic_Index = new Dictionary<string, string>();
 
-dir_Index["A"] = "AAA";
+dic_Index["A"] = "AAA";
+dic_Index.Values;
 
-dir_Index.Values;
+// <方法一> for
+for (int i = 0; i < dic_Index.Count; i++)
+{
+    string key = dic_Index.Keys.ElementAt(i);
+    string value = dic_Index.Values.ElementAt(i);
+}
+
+// <方法二> foreach
+foreach (var item in dic_Index)
+{
+    string key = item.Key;
+    string value = item.Value;
+}
 
 ```
+🔥 Program comments provided by ChatGPT
 
 ### 📌 Dictionary 每個元素進行處理 #免迴圈
 ```C#
