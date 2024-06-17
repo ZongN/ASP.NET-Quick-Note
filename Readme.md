@@ -532,7 +532,7 @@ string str_Re = ls_Index.Where(x => x.IndexOf("B") > -1).ToList()[0];
 
 ```
 
-### 📌 List 數字陣列 #List Range
+### 📌 List 數字陣列 #Enumerable.Range
 ```C#
 
 List<string> ls_Index = Enumerable.Range(1, 25).ToList();
