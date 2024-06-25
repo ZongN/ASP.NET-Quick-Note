@@ -352,6 +352,22 @@ dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Subst
 
 ```
 
+### 📌 Dictionary 排序 OrderBy #排序 OrderBy
+```C#
+
+Dictionary<string, string> dir_Index = new Dictionary<string, string>();
+
+dir_Index["A"] = "AAA";
+dir_Index["B"] = "BBB";
+dir_Index["C"] = "CCC";
+
+// By Key 排序
+dir_Index = dir_Index.OrderBy(k => k.Key).ToDictionary(k => k.Key, p => p.Value);
+// By Value 排序
+dir_Index = dir_Index.OrderBy(p => p.Value).ToDictionary(k => k.Key, p => p.Value);
+
+```
+
 ## `<String>`
 
 ### 📌 String Split 多字元 #字串處理、字串分割
