@@ -449,6 +449,11 @@ str_sql = string.Format(str_sql, dt_Row.Rows[0].ItemArray);
 
 // Result : "INSERT INTO A_TABLE ([A],[B],[C]) VALUES ('XX','YY','ZZ')"
 
+> #### 🔥 Tips : 
+> `轉義字符` : 如果字串本身包含大括號{}，則使用雙大括號進行轉義。
+> string.Format("{{0}} + {{1}}","A","B")
+> Result : "{A} + {B}"
+
 ```
 
 ### 📌 String $ 插值字串 #插值字串
