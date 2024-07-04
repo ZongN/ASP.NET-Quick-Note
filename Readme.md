@@ -484,6 +484,7 @@ index_STR = index_STR.Insert(3,"D");
 ```C#
 
 // 排序 忽略 某個值 達到讓某個值 在第一位的效果
+
 string[] values = { "B", "C", "ALL", "A" };
 
 values = values.OrderBy(x => x != "ALL").ThenBy(x => x).ToArray();
