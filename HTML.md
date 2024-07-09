@@ -21,7 +21,7 @@
 ```JavaScript
 <script type="text/javascript" src="XXX/jquery.min.js"></script>
 <script type="text/javascript" src="XXX/jquery-ui.js"></script>
-
+<script type="text/javascript">
 // 網頁預載 Function
 $(function () {
         // 模擬 Excel 各個 Sheet 分頁 ，切換的效果
@@ -48,7 +48,8 @@ function Selector_Click(ul_id) {
             document.getElementById(index_id).style.display = null;
         }
     }
-}    
+}
+</script>
 ```
 #### HTML
 ```HTML
