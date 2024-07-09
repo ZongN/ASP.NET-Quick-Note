@@ -19,6 +19,9 @@
 ```
 #### JavaScript
 ```JavaScript
+<script type="text/javascript" src="XXX/jquery.min.js"></script>
+<script type="text/javascript" src="XXX/jquery-ui.js"></script>
+
 // 網頁預載 Function
 $(function () {
         // 模擬 Excel 各個 Sheet 分頁 ，切換的效果
