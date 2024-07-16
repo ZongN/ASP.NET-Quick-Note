@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)         |  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) |  
 
 ### 📌 分頁效果
 #### CSS
@@ -68,3 +68,11 @@ function Selector_Click(ul_id) {
 </div>
 ```
 
+### 📌 自動刷新
+#### JavaScript
+```JavaScript
+<script>
+        // 每 5 秒刷新一次頁面
+        setInterval(function(){location.reload();} , 5000);
+</script>
+```
