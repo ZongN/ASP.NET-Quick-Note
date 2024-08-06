@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) |  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下]()、[摺疊效果-左右]()|  
 
 ### 📌 分頁效果
 #### CSS
@@ -74,5 +74,17 @@ function Selector_Click(ul_id) {
 <script>
         // 每 5 秒刷新一次頁面
         setInterval(function(){location.reload();} , 5000);
+</script>
+```
+
+### 📌 摺疊效果-上下
+#### JavaScript
+```JavaScript
+<script>
+        // 收合效果 (jQuery效果)
+        function Fold_Unfold(element_id) {
+            var this_element = "#" + element_id;
+            $(this_element).slideToggle('3500'); // 3500 = 3500 ms 完成摺疊
+        }
 </script>
 ```
