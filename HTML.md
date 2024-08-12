@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)|  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#)|  
 
 ### 📌 分頁效果
 #### CSS
@@ -112,4 +112,24 @@ function Selector_Click(ul_id) {
                 });
         }
 </script>
+```
+
+### 📌 限制只能輸入數字
+#### JavaScript
+```JavaScript
+<script>
+        function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if (charCode < 48 || charCode > 57)
+                    return false;
+                else
+                    return true;
+            }
+</script>
+```
+#### HTML
+```HTML
+<div>
+        <input type="text" id="this_text" onkeypress="return isNumberKey(event)" />
+</div>
 ```
