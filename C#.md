@@ -12,7 +12,7 @@
 | [DateTime](#datetime)        | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)|
-| [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#)|
+| [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
 
 ## `<DataTable>`
 
@@ -695,17 +695,21 @@ protected void Button_Element_Click_B(object sender, EventArgs e){
 
 
 ### 📌 Input Type=number & runat:server 剖析器錯誤 #Input Type number and runat server error
+#### HTML
 ```HTML
-<input id="this_textbox" type="number" placeholder="輸入數字" runat="server" />
-// 可能會出現錯誤 → 剖析器錯誤訊息: 'number' 不是輸入標記的有效型別。原因可能是 .Net Framework 版本差異
 
-// 解法 : 由後段設定 Attributes 屬性
+<!-- 可能會出現錯誤 → 剖析器錯誤訊息: 'number' 不是輸入標記的有效型別。原因可能是 .Net Framework 版本差異 -->
+<input id="this_textbox" type="number" placeholder="輸入數字" runat="server" />
+
+<!-- 解法 : 由後段設定 Attributes 屬性 -->
 <input id="this_textbox" placeholder="輸入數字" runat="server" />
 
 ```
-
+#### C#
 ```C#
 protected void Page_Load(object sender, EventArgs e){
   this_textbox.Attributes.Add("type", "number");
 }
 ```
+Refer to : [stackoverflow](https://stackoverflow.com/questions/9801120/html5-email-input-cannot-assign-id-and-runat-server-asp-net-4/27561096#27561096)
+
