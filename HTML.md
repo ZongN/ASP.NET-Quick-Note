@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)|  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[監聽 iframe load 事件](#)|  
 
 ### 📌 分頁效果
 #### CSS
@@ -83,8 +83,33 @@ function Selector_Click(ul_id) {
 <script>
         // 收合效果 (jQuery效果)
         function Fold_Unfold(element_id) {
-            var this_element = "#" + element_id;
-            $(this_element).slideToggle('3500'); // 3500 = 3500 ms 完成摺疊
+                var this_element = "#" + element_id;
+                $(this_element).slideToggle('3500'); // 3500 = 3500 ms 完成摺疊
+        }
+</script>
+```
+
+### 📌 監聽 iframe load 事件
+#### JavaScript
+```JavaScript
+<script>
+        function main(){
+                // 先加入 iframe 的 loading 監聽事件
+                iframe_add_loading_event('this_iframe');
+                // 重新導向 src 觸發 loading
+                document.getElementById('this_iframe').src = "https://github.com/ZongN/ASP.NET-Quick-Note/blob/main/C%23.md";
+        }
+
+        function iframe_add_loading_event(iframe_id) {
+                // Loading 中的行為
+                // ...
+                // Loading 中的行為
+                var iframe = document.getElementById(iframe_id);
+                iframe.addEventListener('load', function () {
+                        // 結束的行為
+                        // ...
+                        // 結束的行為
+                });
         }
 </script>
 ```
