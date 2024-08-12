@@ -697,15 +697,15 @@ protected void Button_Element_Click_B(object sender, EventArgs e){
 ### 📌 Input Type=number & runat:server 剖析器錯誤 #Input Type number and runat server error
 ```HTML
 <input id="this_textbox" type="number" placeholder="輸入數字" runat="server" />
+// 可能會出現錯誤 → 剖析器錯誤訊息: 'number' 不是輸入標記的有效型別。原因可能是 .Net Framework 版本差異
 
+// 解法 : 由後段設定 Attributes 屬性
 <input id="this_textbox" placeholder="輸入數字" runat="server" />
+
 ```
 
-```HTML
-<input id="this_textbox" placeholder="輸入數字" runat="server" />
+```C#
+protected void Page_Load(object sender, EventArgs e){
+  this_textbox.Attributes.Add("type", "number");
+}
 ```
-
-
-
-
-
