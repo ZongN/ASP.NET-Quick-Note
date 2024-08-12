@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-監聽-iframe-load-事件)|  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)|  
 
 ### 📌 分頁效果
 #### CSS
@@ -89,7 +89,7 @@ function Selector_Click(ul_id) {
 </script>
 ```
 
-### 📌 監聽 iframe load 事件
+### 📌 iframe loading 監聽事件
 #### JavaScript
 ```JavaScript
 <script>
