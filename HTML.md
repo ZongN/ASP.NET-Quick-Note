@@ -139,7 +139,7 @@ function Selector_Click(ul_id) {
 ```JavaScript
 <script>
         $(function () {
-                ("#draggable").draggable({ containment: "parent" });
+                ("#draggable").draggable({ containment: "parent" }); // 表示拖拽元素只能在其父元素內移動，不能超出父元素的範圍
         });
 </script>
 ```
