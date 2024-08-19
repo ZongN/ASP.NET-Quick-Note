@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)|  
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#)|
 
 ### 📌 分頁效果
 #### CSS
@@ -155,7 +155,19 @@ function Selector_Click(ul_id) {
         });
 </script>
 ```
-#### HTML
-```HTML
-<div id="draggable">123456789</div>
+
+### 📌 後端觸發前端的 Document Ready事件(jQuery)
+#### JavaScript
+```JavaScript
+<script>
+        // 將 Document Ready 包成 Javascript function
+        function MyJsFunction() {
+                $("#MyElement").XXXX({
+                });
+        }
+</script>
+```
+#### C#
+```C#
+ScriptManager.RegisterStartupScript(this, GetType(), "CallJsFunction", "MyJsFunction();", true);
 ```
