@@ -156,7 +156,7 @@ function Selector_Click(ul_id) {
 </script>
 ```
 
-### 📌 後端觸發前端的 Document Ready事件(jQuery)
+### 📌 後端觸發前端的 Document Ready 事件(jQuery)
 #### JavaScript
 ```JavaScript
 <script>
