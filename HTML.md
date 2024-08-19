@@ -9,6 +9,8 @@
 ### 📌 分頁效果
 #### CSS
 ```CSS
+
+// 頁籤在上
 #tab-demo > ul { display: block;  margin: 0 -1%;  list-style: none;  text-align: left;}
 .tab-title {  list-style: none;}
 #tab-demo > ul > li {  font-size: medium;  display: inline-block;  vertical-align: top;  margin: 0 -1px -1px 0;  border: 1px solid #BCBCBC;  line-height: 35px;  background: #F7F7F7;  padding: 0 10px;  list-style: none;  box-sizing: border-box;}
@@ -16,6 +18,16 @@
 #tab-demo > ul > li.active {  border-bottom: 1px solid #fff;  background: #fff;}
 #tab-demo > .tab-inner {  clear: both;  border: 1px #BCBCBC solid;}
 .tab-inner {  padding: 15px;  background-color: white;  overflow: auto;}
+
+// 頁籤在左
+#tab-demo{display: flex;}
+#tab-demo > ul{display: block;width: 150px;list-style: none;text-align: left;margin-right: -1px;padding: 0;z-index: 99;max-height: 50vh;}
+.tab-title{list-style: none;}
+#tab-demo > ul > li{display: block;margin: 0;border: 1px solid #BCBCBC;line-height: 35px;background: #F7F7F7;padding: 0 10px;box-sizing: border-box;}
+#tab-demo > ul > li a{color: #000;text-decoration: none;}
+#tab-demo > ul > li.active{border-right: 1px solid #fff;background: #fff;}
+#tab-demo > .tab-inner{border: 1px #BCBCBC solid;flex: 1;}
+.tab-inner{padding: 15px;background-color: white;overflow: auto;display: flex;height: 93vh;z-index: 0;}
 ```
 #### JavaScript
 ```JavaScript
