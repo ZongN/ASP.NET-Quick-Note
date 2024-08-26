@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#-後端觸發前端的-document-ready事件jquery)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#-後端觸發前端的-document-ready事件jquery)、[jQuery引用不同版本](#)|
 
 ### 📌 分頁效果
 #### CSS
@@ -167,7 +167,32 @@ function Selector_Click(ul_id) {
         }
 </script>
 ```
-#### C#
-```C#
-ScriptManager.RegisterStartupScript(this, GetType(), "CallJsFunction", "MyJsFunction();", true);
+
+### 📌 jQuery引用不同版本
+#### JavaScript
+```JavaScript
+<script type="text/javascript" src="script/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">var jQ191 = $.noConflict(true);</script>
+<script type="text/javascript" src="script/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">var jQ360 = $.noConflict(true);</script>
+
+<script>
+// 網頁預載 Function
+        jQ191(function ($) {
+                // Example : Js DataTable
+                $("#MyTable").DataTable({
+                    "autoWidth": false,
+                    "scrollCollapse": true,
+                    "scrollY": "32vh",
+                    "scrollX": true,
+                    "paging": false,
+                    "searching": false,
+                    "info": false
+                });
+        });
+
+        jQ360(function ($) {
+                // XXX
+        });
+</script>
 ```
