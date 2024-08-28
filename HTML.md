@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#-後端觸發前端的-document-ready-事件jquery)、[jQuery引用不同版本](#-jquery引用不同版本)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#-後端觸發前端的-document-ready-事件jquery)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#)|
 
 ### 📌 分頁效果
 #### CSS
@@ -198,3 +198,69 @@ function Selector_Click(ul_id) {
 </script>
 ```
 Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
+
+### 📌 jQuery 客製 tooltip
+#### CSS
+```CSS
+.custom-tooltip {
+	display: none;
+	position: absolute;
+	background-color: black;
+	color: #fff;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 14px;
+	z-index: 1000;
+}
+```
+#### JavaScript
+```JavaScript
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function(){
+		// 選擇所有包含 title 屬性的元素
+		$('[title]').hover(
+			// 滑鼠進入事件
+			function(event){
+				// 取得 title 屬性的值
+				var tooltipContent = $(this).attr('title');
+				
+				// 清空 title 屬性，避免瀏覽器預設的工具提示
+				$(this).attr('data-title', tooltipContent).removeAttr('title');
+				
+				// 顯示自定義工具提示
+				$('#tooltip').html(tooltipContent).css({
+					display: 'block',
+					top: event.pageY + 10 + 'px',
+					left: event.pageX + 10 + 'px'
+				});
+
+				this.style.cursor = 'help';
+			}, 
+			// 滑鼠離開事件
+			function(){
+				// 隱藏工具提示，並恢復 title 屬性
+				var originalTitle = $(this).attr('data-title');
+				$(this).attr('title', originalTitle);
+				$('#tooltip').css('display', 'none');
+
+				this.style.cursor = 'default';
+			}
+		);
+
+		// 更新工具提示的位置
+		$('[title]').mousemove(function(event){
+			$('#tooltip').css({
+				top: event.pageY + 10 + 'px',
+				left: event.pageX + 10 + 'px'
+			});
+		});
+    });
+</script>
+```
+#### HTML
+```HTML
+<div title="Test Tooltip">Custom-Tooltip 測試區</div>
+
+<div class="custom-tooltip" id="tooltip"></div>
+```
