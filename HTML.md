@@ -69,8 +69,8 @@ function Selector_Click(ul_id) {
   <!-- 分頁標籤 -->
   <ul class="tab-title">
     <li onclick="Selector_Click('tab_One')"><a href="#" onclick="Selector_Click('tab_One')" style="font-size:small;">One</a></li>
-    <li onclick="Selector_Click('tab_Two')"><a href="#" onclick="Selector_Click('tab_Two')" style="font-size:small;">One</a></li>
-    <li onclick="Selector_Click('tab_Three')"><a href="#" onclick="Selector_Click('tab_Three')" style="font-size:small;">One</a></li>
+    <li onclick="Selector_Click('tab_Two')"><a href="#" onclick="Selector_Click('tab_Two')" style="font-size:small;">Two</a></li>
+    <li onclick="Selector_Click('tab_Three')"><a href="#" onclick="Selector_Click('tab_Three')" style="font-size:small;">Three</a></li>
   </ul>
 
   <!-- 分頁內容 -->
