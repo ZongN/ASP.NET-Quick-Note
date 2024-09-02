@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端觸發前端的Document Ready事件(jQuery)](#-後端觸發前端的-document-ready-事件jquery)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊JavaScript Function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)|
 
 ### 📌 分頁效果
 #### CSS
@@ -156,7 +156,7 @@ function Selector_Click(ul_id) {
 </script>
 ```
 
-### 📌 後端註冊+觸發前端的 Document Ready 事件(jQuery)
+### 📌 後端註冊 JavaScript Function事件
 #### C#
 ```C#
 // 註冊 JS Function
