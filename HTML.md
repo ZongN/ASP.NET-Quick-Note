@@ -156,21 +156,20 @@ function Selector_Click(ul_id) {
 </script>
 ```
 
-### 📌 後端觸發前端的 Document Ready 事件(jQuery)
-#### JavaScript
-```JavaScript
-<script>
-        // 將 Document Ready 包成 Javascript function
-        function MyJsFunction() {
-                $("#MyElement").XXXX({
-                });
-        }
-</script>
-```
+### 📌 後端註冊+觸發前端的 Document Ready 事件(jQuery)
 #### C#
 ```C#
-// 主動觸發 JS Function
-ScriptManager.RegisterStartupScript(this, GetType(), "CallJsFunction", "MyJsFunction();", true);
+// 註冊 JS Function
+// 警示訊息彈窗
+ScriptManager.RegisterStartupScript(this, this.GetType(), "alertScript", "alert('這是一個警示訊息！');", true);
+
+// 修改元素樣式的腳本
+string script = "document.getElementById('myElement').style.color = 'red';";
+ScriptManager.RegisterStartupScript(this, this.GetType(), "styleScript", script, true);
+
+// 彈出彈窗
+string script = "alert('您點選了按鈕！');";
+ScriptManager.RegisterStartupScript(this, this.GetType(), "buttonClickScript", script, true);
 ```
 
 ### 📌 jQuery引用不同版本
