@@ -169,7 +169,7 @@ function Selector_Click(ul_id) {
 ```
 #### C#
 ```C#
-// 主動觸發 JS Datatable Function 讓 Table 套用格式
+// 主動觸發 JS Function
 ScriptManager.RegisterStartupScript(this, GetType(), "CallJsFunction", "MyJsFunction();", true);
 ```
 
