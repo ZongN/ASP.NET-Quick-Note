@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件]()|
 
 ### 📌 分頁效果
 #### CSS
@@ -267,4 +267,34 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 <div title="Test Tooltip">Custom-Tooltip 測試區</div>
 
 <div class="custom-tooltip" id="tooltip"></div>
+```
+
+### 📌 Javascript 觸發 AsyncPostBackTrigger 事件
+#### JavaScript
+```JavaScript
+<script>
+        function MyJsFunction(){
+		__doPostBack('<%=UpdatePanel_1.ClientID%>'); // 主動觸發
+	}
+</script>
+<script runat="server">
+    protected void HiddenField_ValueChanged(object sender, EventArgs e)
+    {
+        TextBox_B.Text = HiddenField_A.Value;
+	// 這裡也可以呼叫後端 .cs 中的 public function
+    }
+</script>
+```
+
+#### HTML
+```HTML
+<asp:UpdatePanel ID="UpdatePanel_1" runat="server" UpdateMode="Conditional">
+	<ContentTemplate>
+		<asp:TextBox ID="TextBox_B" runat="server"></asp:TextBox>
+        	<asp:HiddenField ID="HiddenField_A" runat="server" OnValueChanged="HiddenField_ValueChanged" />
+	</ContentTemplate>
+    	<Triggers>
+		<asp:AsyncPostBackTrigger ControlID="HiddenField_A" />
+    	</Triggers>
+</asp:UpdatePanel>
 ```
