@@ -272,7 +272,7 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 ### 📌 Javascript 觸發 AsyncPostBackTrigger 事件
 #### JavaScript
 ```JavaScript
-<script>
+<script type="text/javascript">
         function MyJsFunction(){
 		__doPostBack('<%=UpdatePanel_1.ClientID%>'); // 主動觸發
 	}
