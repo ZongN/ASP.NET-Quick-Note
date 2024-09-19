@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css]()|
 
 ### 📌 分頁效果
 #### CSS
@@ -297,4 +297,82 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 		<asp:AsyncPostBackTrigger ControlID="HiddenField_A" />
     	</Triggers>
 </asp:UpdatePanel>
+```
+
+### 📌 水平導航列 Navbar-純css
+#### CSS
+```CSS
+.NavBar
+{
+
+}
+
+/* 父節點 */
+.NavBar > ul {
+    padding: 0;
+    list-style-type: none;            
+    white-space: nowrap;
+    background-color:lime;
+}
+
+.NavBar > ul > li {
+    display: inline-block;
+    margin: .5%;
+}
+
+.NavBar label:hover {
+    cursor:pointer;
+    color:white;
+}
+
+/* 展開子節點 */
+.NavBar li:hover > ul {
+    display: block;
+}
+
+/* 子節點 */
+.NavBar > ul ul {
+    background:silver;
+    display: none;
+    position:fixed;
+    list-style-type: none;
+    padding:.5%;
+}
+
+.NavBar > ul ul > li {
+    margin-bottom: 5px; /* li 間距*/
+}
+```
+#### HTML
+```HTML
+<div class="NavBar">
+    <ul>
+	<li><label>A-Item</label></li>
+	<li><label>B-Item</label>
+	    <ul>
+		<li><label>B001-Item</label></li>
+		<li><label>B002-Item</label></li>
+		<li><label>B003-Item</label>
+		    <ul>
+			<li><label>B011-Item</label></li>
+			<li><label>B012-Item</label></li>
+			<li><label>B013-Item</label></li>
+			<li><label>B014-Item</label></li>
+		    </ul>
+		</li>
+	    </ul>
+	</li>
+	<li><label>C-Item</label></li>
+	<li><label>D-Item</label>
+	    <ul>
+		<li><label>D001-Item</label></li>
+		<li><label>D002-Item</label></li>
+		<li><label>D003-Item</label></li>
+		<li><label>D004-Item</label></li>
+		<li><label>D005-Item</label></li>
+	    </ul>
+	</li>
+	<li><label>E-Item</label></li>
+    </ul>
+</div>
 ```
