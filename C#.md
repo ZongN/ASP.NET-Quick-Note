@@ -233,7 +233,7 @@ dt_A.merge(dt_B, true, MissingSchemaAction.Ignore);
 ```
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.merge?view=net-8.0#system-data-datatable-merge)
 
-### 📌 DataTable 分組篩選轉 Dictionary #DataTable GroupBy
+### 📌 DataTable 分組篩選 轉 Dictionary #DataTable GroupBy
 ```C#
 
 Dictionary<string, List<string>> dic_Index = dt_Index
