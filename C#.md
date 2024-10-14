@@ -4,7 +4,7 @@
 
 | Type                         | Function                    |
 | :--------------------------: | :-------------------------- |
-| [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選轉 Dictionary](#-datatable-分組篩選轉-dictionary-datatable-groupby) |
+| [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選轉 Dictionary](#-datatable-分組篩選轉-dictionary-datatable-groupby)、[欄位排名]() |
 | [DataRow[]](#datarow)        | [轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[轉List](#-datarow-to-list-datarow-轉-list)、[篩選](#-datarow-where-篩選-二次篩選)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
 | [Dictionary](#dictionary)    | [取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)|
 | [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)|
@@ -246,6 +246,27 @@ Dictionary<string, List<string>> dic_Index = dt_Index
     })
     .OrderBy(x => x.C_A)                        // 將結果集進行排序，根據 C_A（分組的鍵）的值進行升序排序。
     .ToDictionary(x => x.C_A, x => x.C_B);      // 將 LINQ 查詢的結果轉換為 Dictionary。其中第一個參數 x => x.C_A 指定了鍵的選取條件，第二個參數 x => x.C_B 指定了值的選取條件。
+
+```
+🔥 Program comments provided by ChatGPT
+
+### 📌 DataTable 欄位排名 Rank #排名 Rank
+```C#
+
+DataTable dt_index = new DataTable();
+dt_index.Column.Add("Rank",typeof(int));
+dt_index.Column.Add("Total",typeof(double));
+
+...
+
+// 進行排名
+dt_index.AsEnumerable()
+  .OrderByDescending(row => row.Field<double>("Total")) // 按 Total 欄位降序排序
+  .Select((row, index) =>
+  {
+      row["Rank"] = index + 1; // 設置 Rank 欄位
+      return row;
+  }).ToList();
 
 ```
 🔥 Program comments provided by ChatGPT
