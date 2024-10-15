@@ -10,7 +10,7 @@
 | [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)|
 | [Linq](#linq)                | [排序](#-特殊排序-特殊排序) |
 | [DateTime](#datetime)        | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
-| [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)|
+| [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置]()|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)、[時間區間重疊計算](#-時間區間重疊計算-時間重疊)|
 | [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
 
@@ -614,6 +614,17 @@ else
 List<string> ls_Index = Enumerable.Range(1, 25).ToList();
 
 // Result : 1~25
+
+```
+
+### 📌 新增值於第N個位置 #List Insert
+```C#
+
+List<string> ls_Index = new List<string>() { "A","B","C" };
+
+ls_Index.Insert(0, "D");
+
+// Result : "D","A","B","C"
 
 ```
 
