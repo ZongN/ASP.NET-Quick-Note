@@ -4,7 +4,7 @@
 
 | Type                         | Function                    |
 | :--------------------------: | :-------------------------- |
-| [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[日期篩選](#-datatable-select-datetime-日期篩選)、[唯一值](#-datatable-row-get-unique-唯一值)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選 轉 Dictionary](#-datatable-分組篩選-轉-dictionary-datatable-groupby)、[排名](#-datatable-欄位排名-rank-排名-rank) |
+| [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[唯一值](#-datatable-row-get-unique-唯一值)、[篩選+唯一值]()、[日期篩選](#-datatable-select-datetime-日期篩選)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選 轉 Dictionary](#-datatable-分組篩選-轉-dictionary-datatable-groupby)、[排名](#-datatable-欄位排名-rank-排名-rank) |
 | [DataRow[]](#datarow)        | [轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[轉List](#-datarow-to-list-datarow-轉-list)、[篩選](#-datarow-where-篩選-二次篩選)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
 | [Dictionary](#dictionary)    | [取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)|
 | [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)|
@@ -116,12 +116,14 @@ DataRow[] dr_Index = dt_Index.Select("[TYPE] = 'A' ","[TYPE] DESC");
 
 Refer to : [Microsoft Build](https://learn.microsoft.com/zh-tw/dotnet/api/system.data.datatable.select?view=net-7.0#system-data-datatable-select(system-string-system-string-system-data-dataviewrowstate))
 
-### 📌 DataTable Select DateTime #日期篩選
+### 📌 DataTable Where + Select #篩選 + 唯一值
 ```C#
 
-// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
-// 關鍵是 # 字號 將日期包起來
-DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
+List<string> ls_Index = dt_Index.AsEnumerable()
+                                .Where(row => row.Field<string>("欄位A") == "AA" && row.Field<string>("欄位B") == "BB") // 篩選兩個欄位
+                                .Select(row => row.Field<string>("欄位C")) // 選取 "欄位C"
+                                .Distinct() // 取得唯一值
+                                .ToList(); // 將結果轉換為 List
 
 ```
 
@@ -154,6 +156,15 @@ List<string> ls_Index = dt_Index.AsEnumerable()
                                 .OrderBy(p => p.Length) // 先按字串長度排序
                                 .ThenBy(p => p) // 若長度相同，則按字母順序升冪排序
                                 .ToList();
+
+```
+
+### 📌 DataTable Select DateTime #日期篩選
+```C#
+
+// 篩選 2022/05/02 ~ 2022/05/05 間的 資料
+// 關鍵是 # 字號 將日期包起來
+DataRow[] dr_Index = dt.Select("[開始日期] >= #" + "2022/05/02" + "# AND [結束日期] <= #" + "2022/05/05" + "# ")
 
 ```
 
