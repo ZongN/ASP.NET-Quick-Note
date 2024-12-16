@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)、[Javascript Ajax Web Service(SOAP)](#)|
 
 ### 📌 分頁效果
 #### CSS
@@ -403,4 +403,64 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 <div class="blink">
     Blink Test
 </div>
+```
+
+### 📌 Javascript Ajax Web Service (SOAP)
+#### JavaScript
+```JavaScript
+<script type="text/javascript">
+        function SendWebService(parameter_1, parameter_2, parameter_3)
+        {
+		var soapMessage = `<?xml version="1.0" encoding="utf-8"?>
+					<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	     					<soap:Body>
+							<MyFunction xmlns="http://tempuri.org/">
+		                                            <parameter_1>${parameter_1}</parameter_1>
+		                                            <parameter_2>${parameter_2}</parameter_2>
+		                                            <parameter_3>${parameter_3}</parameter_3>
+		                                        </MyFunction>
+						</soap:Body>
+					</soap:Envelope>`;
+                $.ajax({
+                    type: "POST",
+                    url: "http://XXXXXXXXXXXXXXXXXXXXXXXXXXXX.asmx",
+                    data: soapMessage,
+                    contentType: "text/xml; charset=utf-8",
+                    dataType: "xml",
+                    success: function (response) {
+                        console.log("成功:", response);
+
+                        // 回傳內容
+                        var result_content = extractResponseValue(response);
+
+                        // 將 JSON 字符串解析為 JavaScript 對象
+                        var jsonArray = JSON.parse(result_content);
+
+                        // 解析回傳值 轉成 Timeline 格式
+                        if (jsonArray.length > 0)
+                        {
+                            refresh_content = "";
+
+                            // 逐筆提取欄位內容
+                            jsonArray.forEach(function (item) {
+				console.log("Result1:", item.result_1);
+				console.log("Result2:", item.result_2);
+				console.log("Result3:", item.result_3);
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("錯誤:", error);
+                    }
+                });         
+        }
+        function extractResponseValue(response) {
+            // 設置 NS，根據 WSDL 或實際返回的 XML 結構進行設置
+            var namespaces = { soap: "http://schemas.xmlsoap.org/soap/envelope/", ns: "http://tempuri.org/" };
+            // 使用查詢選擇器從 XML 響應中獲取值
+            var returnValue = response.getElementsByTagName("Update_RemarkResult")[0].textContent;
+            console.log("回傳值:", returnValue);
+	    return returnValue;
+        }
+</script>
 ```
