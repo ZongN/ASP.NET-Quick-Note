@@ -465,7 +465,7 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 </script>
 ```
 
-### 📌 兩物件連接線效果 (利用 Javascript 添加效果)
+### 📌 兩物件連接線效果 (利用 Javascript 添加 "連接線" 物件)
 #### JavaScript
 ```JavaScript
 <script>
