@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)、[Javascript Ajax Web Service(SOAP)](#-javascript-ajax-web-service-soap)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)、[Javascript Ajax Web Service(SOAP)](#-javascript-ajax-web-service-soap)、[兩物件連接線效果]()|
 
 ### 📌 分頁效果
 #### CSS
@@ -463,4 +463,62 @@ Refer to : [博客园](https://www.cnblogs.com/djd66/p/9243290.html)
 	    return returnValue;
         }
 </script>
+```
+
+### 📌 兩物件連接線效果
+#### JavaScript
+```JavaScript
+<script>
+function draw_connect_line(parent_id, element1_id, element2_id) {
+
+        // 取得父原素的座標點
+        const parentRect = document.getElementById(parent_id).getBoundingClientRect();
+        const obj1 = document.getElementById(element1_id);
+        const obj2 = document.getElementById(element2_id);
+
+        // 點1 中心座標 (相對於父元素)
+        let x1 = (obj1.getBoundingClientRect().left + obj1.getBoundingClientRect().right) / 2 - parentRect.left;
+        let y1 = (obj1.getBoundingClientRect().top + obj1.getBoundingClientRect().bottom) / 2 - parentRect.top;
+
+        // 點2 中心座標 (相對於父元素)
+        let x2 = (obj2.getBoundingClientRect().left + obj2.getBoundingClientRect().right) / 2 - parentRect.left;
+        let y2 = (obj2.getBoundingClientRect().top + obj2.getBoundingClientRect().bottom) / 2 - parentRect.top;
+
+        // 計算兩點距離 (歐幾里得距離算法)
+        let length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
+        // 計算連接線旋轉弧度值
+        let rad = Math.atan2((y2 - y1), (x2 - x1));
+        let deg = rad * (180 / Math.PI); // 轉換為角度
+
+        // 連接線未旋轉前，起點座標計算
+        let top = (y1 + y2) / 2;
+        let left = (x1 + x2) / 2 - length / 2;
+
+        // 創建連接線 dom 節點，並設置樣式
+        let line = document.createElement('div');
+        let style =`
+            position: absolute;
+            background-color: blue;
+            height: 1px;
+            top: ${top}px;
+            left:${left}px;
+            width:${length}px;
+            transform: rotate(${deg}deg);
+        `;
+        line.setAttribute('style', style);
+
+        // 加入 父元素 中
+        document.getElementById(parent_id).appendChild(line);
+    }
+
+draw_connect_line('div_parent', 'div_element_1', 'div_element_2');
+</script>
+```
+#### HTML
+```HTML
+<div id='div_parent'>
+        <div id='div_element_1'></div>
+	<div id='div_element_2'></div>
+</div>
 ```
