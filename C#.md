@@ -810,6 +810,47 @@ static TimeSpan GetOverlap(DateTime start1, DateTime end1, DateTime start2, Date
 ```
 🔥 Program comments provided by ChatGPT
 
+### 📌 Json 轉 C# DataTable #Json To DataTable
+```C#
+
+using Newtonsoft.Json;
+
+// ...
+
+static DataTable Json_To_DataTable(string this_json)
+{
+    DataTable dataTable = null;
+
+    if (!string.IsNullOrEmpty(this_json))
+    {
+        // 使用 JObject 解析 JSON
+        var xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(this_json);
+
+        // 取得 QueryResult 節點的值
+        string queryResultJson = xmlDoc.InnerText;
+
+        if (!string.IsNullOrEmpty(queryResultJson))
+        {
+            // 確保得到的 JSON 格式是有效的，然後解析
+            dataTable = JsonConvert.DeserializeObject<DataTable>(queryResultJson);
+        }
+        else
+        {
+            // 錯誤處理：QueryResult 節點未找到或無效
+            throw new Exception("QueryResult not found in the response.");
+        }
+    }
+    else
+    {
+
+    }
+
+    return dataTable;
+}
+
+```
+
 ## `<Element>`
 
 ### 📌 Button Click 動態連結事件 #Button Dynamic Click
