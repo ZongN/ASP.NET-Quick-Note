@@ -13,6 +13,7 @@
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置](#-新增值於第n個位置-list-insert)、[List 計算](#-list-計算-sunaveragetaketakelastspip)|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)、[時間區間重疊計算](#-時間區間重疊計算-時間重疊)、[Json 轉 DataTable](#-json-轉-datatable-json-to-datatable)|
 | [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
+| [Other](#Other)              | [值類型與引用類型]() |
 
 ## `<DataTable>`
 
@@ -896,3 +897,23 @@ protected void Page_Load(object sender, EventArgs e){
 ```
 Refer to : [stackoverflow](https://stackoverflow.com/questions/9801120/html5-email-input-cannot-assign-id-and-runat-server-asp-net-4/27561096#27561096)
 
+## `<Other>`
+### 📌 值類型、引用類型 #value type、reference type
+#### C#
+```C#
+private void Change_Array_Value(int[] index_array,int index_num){
+    index_array[0] = 4;
+    index_num = 100;
+}
+
+private void Main(){
+    int[3] original_array = new int[] {1,2,3};
+    int original_num = 10;
+
+    Change_Array_Value(original_array,original_num);
+
+    // Output
+    // original_array[0] 會變為 4
+    // original_num 則不變
+}
+```
