@@ -395,6 +395,9 @@ foreach (var item in dic_Index)
     string value = item.Value;
 }
 
+// <方法三> 鍵取值
+string value = dic_Index["A"];
+
 ```
 🔥 Program comments provided by ChatGPT
 
