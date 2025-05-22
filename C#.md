@@ -6,7 +6,7 @@
 | :--------------------------: | :-------------------------- |
 | [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[唯一值](#-datatable-row-get-unique-唯一值)、[篩選+唯一值](#-datatable-where--select-篩選--唯一值)、[日期篩選](#-datatable-select-datetime-日期篩選)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選 轉 Dictionary](#-datatable-分組篩選-轉-dictionary-datatable-groupby)、[排名](#-datatable-欄位排名-rank-排名-rank)、[欄位順序調整](#-datatable-欄位順序調整-column-setordinal) |
 | [DataRow[]](#datarow)        | [轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[轉List](#-datarow-to-list-datarow-轉-list)、[篩選](#-datarow-where-篩選-二次篩選)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)|
-| [Dictionary](#dictionary)    | [取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)|
+| [Dictionary](#dictionary)    | [建立]()、[取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)|
 | [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)、[字串重複](#-string-concat-字串重複-repeat效果-字串重複)|
 | [Linq](#linq)                | [排序](#-特殊排序-特殊排序) |
 | [DateTime](#datetime)        | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
@@ -373,10 +373,20 @@ double index_Avg = dr_Index.Average(x => double.Parse(x["Columns_A"].ToString())
 
 ## `<Dictionary>`
 
+### 📌 Dictionary 建立 #新建
+```C#
+
+Dictionary<string, int> dir_Index = new Dictionary<string, int>(){{"Amy",10},{"Jack",12}};
+
+dir_Index["Sean"] = 18;
+dir_Index["Mandy"] = 7;
+
+```
+
 ### 📌 Dictionary 取值 #取值
 ```C#
 
-Dictionary<string, string> dic_Index = new Dictionary<string, string>();
+Dictionary<string, string> dic_Index = new Dictionary<string, string>(){};
 
 dic_Index["A"] = "AAA";
 dic_Index.Values;
@@ -404,7 +414,7 @@ string value = dic_Index["A"];
 ### 📌 Dictionary 每個元素進行處理 #免迴圈
 ```C#
 
-Dictionary<string, string> dir_Index = new Dictionary<string, string>();
+Dictionary<string, string> dir_Index = new Dictionary<string, string>(){};
 
 dir_Index["A"] = "AAA";
 dir_Index["B"] = "BBB";
@@ -418,7 +428,7 @@ dir_Index = dir_Index.ToDictionary(kv => kv.Key, kv => kv.Value.ToString().Subst
 ### 📌 Dictionary 排序 OrderBy #排序 OrderBy
 ```C#
 
-Dictionary<string, string> dir_Index = new Dictionary<string, string>();
+Dictionary<string, string> dir_Index = new Dictionary<string, string>(){};
 
 dir_Index["1"] = "AAA";
 dir_Index["3"] = "BBB";
