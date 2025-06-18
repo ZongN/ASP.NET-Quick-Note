@@ -9,7 +9,7 @@
 | [Dictionary](#dictionary)    | [建立](#-dictionary-建立-新建)、[取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)|
 | [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)、[字串重複](#-string-concat-字串重複-repeat效果-字串重複)|
 | [Linq](#linq)                | [排序](#-特殊排序-特殊排序) |
-| [DateTime](#datetime)        | [日期轉週別](#-date-to-week-日期-轉-週別)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
+| [DateTime](#datetime)        | [日期轉週別](#-date-to-weekly-日期-轉-週別)、[日期轉星期](#-date-to-week-日期-轉-星期)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置](#-新增值於第n個位置-list-insert)、[List 計算](#-list-計算-sunaveragetaketakelastspip)|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)、[時間區間重疊計算](#-時間區間重疊計算-時間重疊)、[Json 轉 DataTable](#-json-轉-datatable-json-to-datatable)|
 | [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
@@ -575,13 +575,26 @@ values = values.OrderBy(x => x != "ALL").ThenBy(x => x).ToArray();
 
 ## `<DateTime>`
 
-### 📌 Date To Week #日期 轉 週別
+### 📌 Date To Weekly #日期 轉 週別
 ```C#
 
 int index_Week = new CultureInfo("en-US").Calendar.GetWeekOfYear( DateTime.Now, new CultureInfo("en-US").DateTimeFormat.CalendarWeekRule, new CultureInfo("en-US").DateTimeFormat.FirstDayOfWeek )
 
 ```
 Refer to : [Microsoft Build](https://docs.microsoft.com/zh-tw/dotnet/api/system.globalization.calendar.getweekofyear?view=net-6.0)
+
+### 📌 Date To Week #日期 轉 星期
+```C#
+
+DateTime this_day = DateTime.Now;
+
+DayOfWeek dw = this_day.DayOfWeek;
+
+CultureInfo cultureInfo = CultureInfo.CurrentCulture; // 或者使用特定的文化，例如: new CultureInfo("en-US");
+
+string shortDayName = cultureInfo.DateTimeFormat.GetShortestDayName(dw);
+
+```
 
 ### 📌 DateTime.ParseExact #字串轉日期 #特定格式轉換
 ```C#
