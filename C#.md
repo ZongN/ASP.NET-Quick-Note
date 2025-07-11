@@ -742,6 +742,7 @@ List_B.RemoveAll(item => setA.Contains(item));
 
 // 從 List_C 中移除與 List_A 重複的元素
 List_C.RemoveAll(item => setA.Contains(item));
+```
 
 ## `<Other>`
 
