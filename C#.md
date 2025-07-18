@@ -13,7 +13,7 @@
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置](#-新增值於第n個位置-list-insert)、[List 計算](#-list-計算-sunaveragetaketakelastspip)、[List 內容移除 (兩個 List 比對)](#-list-內容移除-兩個-list-比對-list-remove)|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)、[時間區間重疊計算](#-時間區間重疊計算-時間重疊)、[Json 轉 DataTable](#-json-轉-datatable-json-to-datatable)|
 | [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
-| [Other](#other-1)              | [值類型與引用類型](#-值類型引用類型-value-typereference-type) |
+| [Other](#other-1)              | [值類型與引用類型](#-值類型引用類型-value-typereference-type)、[二進位轉十進位]()、[十進位轉二進位]() |
 
 ## `<DataTable>`
 
@@ -984,4 +984,27 @@ private void Main(){
     // original_array[0] 會變為 4
     // original_num 則不變
 }
+```
+
+### 📌 二進位轉十進位 #binary to decimal
+```C#
+
+string binStr = "1011"; // 二進位字串
+
+int number = Convert.ToInt32(binStr, 2);
+
+// 較長的二進位
+string binStr = "111110"; // 二進位字串
+
+long number = Convert.ToUInt64(binStr, 2);
+
+```
+
+### 📌 十進位轉二進位 #decimal to binary
+```C#
+
+int number = 42; // 要轉換的十進位數
+
+string binStr = Convert.ToString(number, 2); // 第二個參數是「進位」（二進位：2）
+
 ```
