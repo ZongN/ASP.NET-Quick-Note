@@ -12,7 +12,7 @@
 | [DateTime](#datetime)        | [日期轉週別](#-date-to-weekly-日期-轉-週別)、[日期轉星期](#-date-to-week-日期-轉-星期)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置](#-新增值於第n個位置-list-insert)、[List 計算](#-list-計算-sunaveragetaketakelastspip)、[List 內容移除 (兩個 List 比對)](#-list-內容移除-兩個-list-比對-list-remove)|
 | [Function](#function)        | [判斷資料表是否存在資料](#-判斷資料表是否存在資料-check-if-datatable-is-empty)、[取得資料表單一欄位唯一值](#-取得資料表單一欄位唯一值-get-datatable-column-unique)、[資料表轉置矩陣](#-取資料表-轉置矩陣--datatable-轉置)、[時間區間重疊計算](#-時間區間重疊計算-時間重疊)、[Json 轉 DataTable](#-json-轉-datatable-json-to-datatable)|
-| [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)|
+| [Element](#element)          | [Button Click 動態連結事件](#-button-click-動態連結事件-button-dynamic-click)、[Input Type=number & runat:server 剖析器錯誤](#-input-typenumber--runatserver-剖析器錯誤-input-type-number-and-runat-server-error)、[CheckBoxList 取出選擇項(免迴圈)]()|
 | [Other](#other-1)              | [值類型與引用類型](#-值類型引用類型-value-typereference-type)、[二進位轉十進位](#-二進位轉十進位-binary-to-decimal)、[十進位轉二進位](#-十進位轉二進位-decimal-to-binary) |
 
 ## `<DataTable>`
@@ -943,6 +943,22 @@ protected void Button_Element_Click_B(object sender, EventArgs e){
   // Click B Event
 }
 
+```
+
+### 📌 CheckBoxList 取出選擇項(免迴圈) #Get CheckBoxList Checked by Linq
+#### HTML
+```HTML
+
+<asp:CheckBoxList ID="CheckBoxList_A" runat="server">
+    <asp:ListItem Selected="True">A</asp:ListItem>
+    <asp:ListItem>B</asp:ListItem>
+    <asp:ListItem>C</asp:ListItem>
+</asp:CheckBoxList>
+
+```
+#### C#
+```C#
+string checked = string.Join("','", CheckBoxList_A.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Text));
 ```
 
 
