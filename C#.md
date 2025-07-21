@@ -945,23 +945,6 @@ protected void Button_Element_Click_B(object sender, EventArgs e){
 
 ```
 
-### 📌 CheckBoxList 取出選擇項(免迴圈) #Get CheckBoxList Checked by Linq
-#### HTML
-```HTML
-
-<asp:CheckBoxList ID="CheckBoxList_A" runat="server">
-    <asp:ListItem Selected="True">A</asp:ListItem>
-    <asp:ListItem>B</asp:ListItem>
-    <asp:ListItem>C</asp:ListItem>
-</asp:CheckBoxList>
-
-```
-#### C#
-```C#
-string checked = string.Join("','", CheckBoxList_A.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Text));
-```
-
-
 ### 📌 Input Type=number & runat:server 剖析器錯誤 #Input Type number and runat server error
 #### HTML
 ```HTML
@@ -980,6 +963,22 @@ protected void Page_Load(object sender, EventArgs e){
 }
 ```
 Refer to : [stackoverflow](https://stackoverflow.com/questions/9801120/html5-email-input-cannot-assign-id-and-runat-server-asp-net-4/27561096#27561096)
+
+### 📌 CheckBoxList 取出選擇項(免迴圈) #Get CheckBoxList Checked by Linq
+#### HTML
+```HTML
+
+<asp:CheckBoxList ID="CheckBoxList_A" runat="server">
+    <asp:ListItem Selected="True">A</asp:ListItem>
+    <asp:ListItem>B</asp:ListItem>
+    <asp:ListItem>C</asp:ListItem>
+</asp:CheckBoxList>
+
+```
+#### C#
+```C#
+string checked = string.Join("','", CheckBoxList_A.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Text));
+```
 
 ## `<Other>`
 ### 📌 值類型、引用類型 #value type、reference type
