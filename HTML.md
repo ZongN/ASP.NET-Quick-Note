@@ -526,83 +526,28 @@ draw_connect_line('div_parent', 'div_element_1', 'div_element_2');
 ### 📌 Table固定標頭
 #### CSS
 ```CSS
-.table_fixed {
-    margin:auto;
-    width: 99%;
-    border-spacing: 0px;
-    border-collapse: collapse;
-    word-break: break-all;
-}
-.table_fixed caption {
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 30px;
-}
-.table_fixed th, .table_fixed td {
-    height: 35px;
-    text-align: center;
-    border: 0.5px solid gray;
-}
-.table_fixed th {
-    border-radius: 5px;
-}
-.table_fixed thead {
-    color: #194176;
-    font-weight: lighter;
-    background-color: #F7F7F7;
-}
-.table_fixed tbody {
-    display: block;
-    width: calc(100% + 4px); /* 這裡的4px是卷軸的寬度 */
-    height: 32vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-.table_fixed tfoot {
-    background-color: #71ea71;
-}
-.table_fixed thead tr, .table_fixed tbody tr, .table_fixed tfoot tr {
-    box-sizing: border-box;
-    table-layout: fixed;
-    display: table;
-    width: 100%;
-}
-.table_fixed tbody tr:nth-of-type(odd) {
-    background: #F0F0F0; /* 帶狀列效果 */
-}
-.table_fixed tbody tr:nth-of-type(even) {
-    background: white; /* 帶狀列效果 */
-}
-.table_fixed tbody tr td {
-    border-bottom: none;
-}
+.table_fixed { margin:auto; width: 99%; border-spacing: 0px; border-collapse: collapse; word-break: break-all; }
+.table_fixed caption { font-weight: bold; font-size: 14px; line-height: 30px; }
+.table_fixed th, .table_fixed td { height: 35px; text-align: center; border: 0.5px solid gray; }
+.table_fixed th { border-radius: 5px; }
+.table_fixed thead { color: #194176; font-weight: lighter; background-color: #F7F7F7; }
+.table_fixed tbody { display: block;  width: calc(100% + 4px); /* 這裡的4px是卷軸的寬度 */ height: 32vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.table_fixed tfoot { background-color: #71ea71; }
+.table_fixed thead tr, .table_fixed tbody tr, .table_fixed tfoot tr { box-sizing: border-box; table-layout: fixed; display: table; width: 100%; }
+.table_fixed tbody tr:nth-of-type(odd) { background: #F0F0F0; /* 帶狀列效果 */ }
+.table_fixed tbody tr:nth-of-type(even) {background: white; /* 帶狀列效果 */ }
+.table_fixed tbody tr td { border-bottom: none; }
 /* 捲軸設定 */
 /* 整個捲軸 */
-::-webkit-scrollbar
-{
-    width: 4px;
-    height: 4px;
-}
+::-webkit-scrollbar { width: 4px; height: 4px; }
 /* 捲軸的軌道 */
-::-webkit-scrollbar-track
-{
-    background: #E9EBEE;
-}
+::-webkit-scrollbar-track { background: #E9EBEE; }
 /*捲軸尚未滑到的軌道*/
-::-webkit-scrollbar-track-piece
-{
-    background: #E9EBEE;
-}
+::-webkit-scrollbar-track-piece { background: #E9EBEE; }
 /* 滑動的區塊 */
-::-webkit-scrollbar-thumb
-{
-    background: #90949C;
-}
+::-webkit-scrollbar-thumb { background: #90949C; }
 /* 滑鼠移到滑動的區塊上 */
-::-webkit-scrollbar-thumb:hover
-{
-    background: #616771;
-}
+::-webkit-scrollbar-thumb:hover { background: #616771; }
 ```
 #### HTML
 ```HTML
