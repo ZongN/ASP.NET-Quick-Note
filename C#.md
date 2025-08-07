@@ -7,7 +7,7 @@
 | [DataTable](#datatable)      | [新增資料(列)](#-datatable-add-new-row-新增資料列)、[新增資料(行)](#-datatable-add-new-column-新增資料行)、[欄位資料型態轉換](#-datatable-change-column-data-type-欄位-資料型態轉換-已存在資料免迴圈)、[排序](#-datatable-column-sorting-排序)、[篩選+排序](#-datatable-select--sorting-篩選--排序)、[唯一值](#-datatable-row-get-unique-唯一值)、[篩選+唯一值](#-datatable-where--select-篩選--唯一值)、[日期篩選](#-datatable-select-datetime-日期篩選)、[資料(列)轉List](#-datatable-row-itemarray-to-list-資料列-轉-list)、[資料(行)轉List](#-datatable-column-to-list-資料行-轉-list)、[移除重複資料行](#-datatable-remove-same-row-移除重複資料行)、[Sum加總/Average平均/運算式](#-datetable-欄位計算-sum加總average平均運算式)、[取前N筆資料](#-datatable-take-n-row-取前-n-筆資料)、[資料表合併-欄位衝突](#-datatable-merge-資料表合併-欄位衝突)、[資料表分組篩選 轉 Dictionary](#-datatable-分組篩選-轉-dictionary-datatable-groupby)、[排名](#-datatable-欄位排名-rank-排名-rank)、[欄位順序調整](#-datatable-欄位順序調整-column-setordinal) |
 | [DataRow[]](#datarow)        | [轉DataTable](#-datarow-to-datatable-datarow-轉-datatable)、[轉List](#-datarow-to-list-datarow-轉-list)、[篩選](#-datarow-where-篩選-二次篩選)、[排序](#-datarow-column-orderby--orderbydescending-排序)、[排序+取唯一值](#-datarow-column-orderby--get-unique-排序-同時-取唯一值)、[Sum加總/Average平均](#-datarow-欄位計算-sum加總average平均)、[從 DataTable 中刪除 Select](#-delete-from-datatable-select-delete-from-datatable)、[操作所有資料 免迴圈](#-操作所有資料-免迴圈-edit-in-datarow-without-for-loop)|
 | [Dictionary](#dictionary)    | [建立](#-dictionary-建立-新建)、[取值](#-dictionary-取值-取值)、[每個元素進行處理](#-dictionary-每個元素進行處理-免迴圈)、[排序](#-dictionary-排序-orderby-排序-orderby)、[判斷Key是否存在](#-dictionary-判斷-key-是否存在-containskey)|
-| [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)、[字串重複](#-string-concat-字串重複-repeat效果-字串重複)|
+| [String](#string)            | [字串分割](#-string-split-多字元-字串處理字串分割)、[字串比對](#-string-contains-字串比對-字串比對)、[字串多條件比對](#-string-startswith-字串模糊比對--多條件模糊比對-字串比對-多條件比對)、[字串補位元](#-string-padleft-字串補位元-字串補位元)、[佔位符](#-string-format--佔位符-佔位符)、[插值字串](#-string--插值字串-插值字串)、[字串插入](#-string-insert-字串插入-字串插入)、[字串重複](#-string-concat-字串重複-repeat效果-字串重複)、[千分位符]()|
 | [Linq](#linq)                | [排序](#-特殊排序-特殊排序) |
 | [DateTime](#datetime)        | [日期轉週別](#-date-to-weekly-日期-轉-週別)、[日期轉星期](#-date-to-week-日期-轉-星期)、[字串轉日期](#-datetimeparseexact-字串轉日期-特定格式轉換)、[月天數](#-datetimedaysinmonth-月天數)|
 | [List](#list)                | [唯一值](#-list-get-unique-唯一值)、[轉String字串](#-list-轉-string-字串-免迴圈-list-轉-string)、[Where+IndexOf查找字串](#-list-where--indexof-查找字串-list-where--indexof)、[內容查詢](#-list-內容查詢-list-contains)、[建立數字陣列](#-list-建立數字陣列-enumerablerange)、[新增值於第N個位置](#-新增值於第n個位置-list-insert)、[List 計算](#-list-計算-sunaveragetaketakelastspip)、[List 內容移除 (兩個 List 比對)](#-list-內容移除-兩個-list-比對-list-remove)|
@@ -598,6 +598,23 @@ index_STR = index_STR.Insert(3,"D");
 ```C#
 
 string index_STR = string.Concat(Enumerable.Repeat("ABC", 5));
+
+```
+
+### 📌 String 千分位符 #字串千分位符
+```C#
+
+// <方法一> ToString
+int number = 1234567;
+string formatted = number.ToString("N0"); // 例如：1,234,567
+
+// <方法二> string.Format
+double value = 1234567.89;
+string formatted = string.Format("{0:N2}", value); // "1,234,567.89"
+
+// <方法三> 插值字串（C# 6 ↑）
+double value = 1234567.89;
+string formatted = $"{value:N2}"; // "1,234,567.89"
 
 ```
 
