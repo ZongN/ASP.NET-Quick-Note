@@ -617,6 +617,7 @@ double value = 1234567.89;
 string formatted = $"{value:N2}"; // "1,234,567.89"
 
 ```
+🔥 Program comments provided by ChatGPT
 
 ## `<Linq>`
 
