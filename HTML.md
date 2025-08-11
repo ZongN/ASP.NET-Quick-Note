@@ -4,7 +4,7 @@
 
 | Function                     |
 | :--------------------------: |
-|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)、[Javascript Ajax Web Service(SOAP)](#-javascript-ajax-web-service-soap)、[兩物件連接線效果](#-兩物件連接線效果-利用-javascript-添加-連接線-物件)、[Table固定標頭-純css](#-table固定標頭)|
+|[分頁效果](#-分頁效果)、[自動刷新](#-自動刷新) 、[摺疊效果-上下](#-摺疊效果-上下)、[摺疊效果-左右](#)、[iframe loading 監聽事件](#-iframe-loading-監聽事件)、[限制只能輸入數字](#-限制只能輸入數字)、[jQuery拖動視窗效果](#-jquery拖動視窗效果)、[後端註冊JavaScript Function事件](#-後端註冊-javascript-function事件)、[jQuery引用不同版本](#-jquery引用不同版本)、[jQuery 客製 tooltip](#-jquery-客製-tooltip)、[Javascript 觸發 AsyncPostBackTrigger 事件](#-javascript-觸發-asyncpostbacktrigger-事件)、[水平導航列 Navbar-純css](#-水平導航列-navbar-純css)、[CSS閃爍效果](#-css閃爍效果)、[Javascript Ajax Web Service(SOAP)](#-javascript-ajax-web-service-soap)、[兩物件連接線效果](#-兩物件連接線效果-利用-javascript-添加-連接線-物件)、[Table固定標頭-純css](#-table固定標頭)、[後端關閉網頁]()|
 
 ### 📌 分頁效果
 #### CSS
@@ -582,4 +582,10 @@ draw_connect_line('div_parent', 'div_element_1', 'div_element_2');
 		</tr>
 	</tbody>
 </table>
+```
+
+### 📌 後端關閉網頁
+#### CS
+```CS
+	Response.Write("<script>window.opener=null;window.open('','_parent','');window.close();</script>");
 ```
