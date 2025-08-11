@@ -587,5 +587,5 @@ draw_connect_line('div_parent', 'div_element_1', 'div_element_2');
 ### 📌 後端關閉網頁
 #### CS
 ```CS
-	Response.Write("<script>window.opener=null;window.open('','_parent','');window.close();</script>");
+Response.Write("<script>window.opener=null;window.open('','_parent','');window.close();</script>");
 ```
